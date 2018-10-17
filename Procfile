@@ -1,2 +1,2 @@
-web: gunicorn intro_to_flask:app
+web: gunicorn server:app
 release: python dbinit.py
