@@ -1,6 +1,10 @@
 from psycopg2 import pool
 import urlparse
 import os
+import urlparse
+from os.path import exists
+from os import makedirs
+
 
 
 class Database:
