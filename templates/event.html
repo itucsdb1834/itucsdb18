@@ -1,0 +1,52 @@
+
+{% extends "layout2.html" %}
+{%block content %}
+<div class = "content-section">
+    <fieldset class = "form-group">
+        <legend class = "border-bottom-mb-4"> Event: {{event.name}} </legend>
+        {%if owned == False %}
+          <form method = "POST" action = "">
+            {{form.hidden_tag()}}
+            <div class = "form-group">
+                {{ form.submit(class = "btn btn_outline_info")}}
+            </div>
+          </form>
+        {%endif%}
+        <table style="width:100%" class = "table">
+            <tr>
+                <th>Name</th>
+                <td>{{event.name}}</td>
+            </tr>
+            <tr>
+                <th>Group</th>
+                <td>{{event.group_name}}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{event.place}}</td>
+            </tr>
+            <tr>
+                <th>Owner</th>
+                <td>{{event.owner_username}}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{event.day}}.{{event.month}}.{{event.year}}</td>
+            </tr>
+            <tr>
+                <th>Explanation</th>
+                <td>{{event.explanation}}</td>
+            </tr>
+            <tr>
+                <th>Participants</th>
+                {%for x in range(event.no_of_participants) %}
+                <td>
+                    {{event.participant_arr[x]}}
+                </td>
+                {%endfor%}
+            </tr>
+        </table>
+    </fieldset>
+
+</div>
+{%endblock content %}
