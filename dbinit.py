@@ -39,7 +39,7 @@ INIT_STATEMENTS = [
 		"on delete no action"
 		"on update no action"
     ");",
-    " CREATE TABLE event_table (
+    " CREATE TABLE event_table ("
 	"event_id serial NOT NULL UNIQUE,"
 	"group_id INT,"
 	"event_name varchar(255) UNIQUE NOT NULL,"
@@ -49,7 +49,7 @@ INIT_STATEMENTS = [
 	"month int NOT NULL,"
 	"year int NOT NULL,"
 	"explanation varchar(255) ,"
-    "	unique(event_name,owner,day,month,year),"
+    	"unique(event_name,owner,day,month,year),"
 	"foreign key(owner)"
 	"	references user_table(userid)"
 	"	on delete cascade"
@@ -62,7 +62,7 @@ INIT_STATEMENTS = [
     "CREATE TABLE event_user ("
 	"event_id INT NOT NULL,"
 	"user_id INT NOT NULL,"
-    "        primary key(user_id, event_id),"
+    	" primary key(user_id, event_id),"
 	"foreign key(event_id)"
 	"	references event_table(event_id)"
 	"	on delete cascade"
