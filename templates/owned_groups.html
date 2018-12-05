@@ -1,0 +1,25 @@
+{% extends "layout2.html" %}
+  {%block content %}
+    <h1> Owned Groups </h1>
+    <h5> Here are groups created by you: </h5>
+    {% for group in groups%}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <form action="/home" method = "post">
+                    <input type="hidden" name= "event_id" value= {{group.group_id}} />
+                    <input type="submit"  value = "View">
+                    <input type="hidden" name= "event_id_update" value= {{group.event_id}} />
+                    <input type="submit"  value = "Update" formaction = "/update_group\">
+                    <input type="hidden" name= "event_id_delete" value= {{group.event_id}} />
+                    <input type="submit" value = "Delete" formaction = "/delete_event">
+                </form>
+
+            </div>
+            <h2><a class="article-title" href="#">{{ group.name }}</a></h2>
+            <p class="article-content">{{ group.description }}</p>
+        </div>
+    </article>
+    {% endfor %}
+
+{% endblock content %}

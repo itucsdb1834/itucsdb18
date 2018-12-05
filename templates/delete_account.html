@@ -1,0 +1,19 @@
+
+{% extends "layout2.html" %}
+{%block content %}
+<div class = "content-section">
+    <form method = "POST" action = "">
+        <!--Protection-->
+        {{ form.hidden_tag() }}
+        <fieldset class = "form-group">
+            <legend class = "border-bottom-mb-4"> Are you sure you want to leave us {{posts.name}}? :(  </legend>
+        </fieldset>
+        <div class = "form-group">
+            {{ form.submit(class = "btn btn_outline_info")}}
+        </div>
+    </form>
+</div>
+{%endblock content %}
+
+
+

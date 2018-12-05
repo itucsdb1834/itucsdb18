@@ -1,0 +1,49 @@
+
+{% extends "layout2.html" %}
+{%block content %}
+<div class = "content-section">
+    <fieldset class = "form-group">
+        <legend class = "border-bottom-mb-4"> Welcome {{posts.name}}! </legend>
+        <table style="width:100%" class = "table">
+            <tr>
+                <th>Name</th>
+                <td>{{posts.name}}</td>
+            </tr>
+            <tr>
+                <th>Surname</th>
+                <td>{{posts.surname}}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{posts.username}}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{posts.gender}}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{posts.age}}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{posts.country}}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{posts.city}}</td>
+            </tr>
+            <tr>
+                <th>Hobbies</th>
+                <td>{{posts.hobbies}}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{posts.description}}</td>
+            </tr>
+            
+        </table>
+    </fieldset>
+</div>
+{%endblock content %}
+

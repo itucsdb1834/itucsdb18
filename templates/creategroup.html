@@ -1,0 +1,35 @@
+{% extends "layout2.html" %}
+{%block content %}
+<div class = "content-section">
+    <form method = "POST" action = "">
+        <!--Protection-->
+        {{ form.hidden_tag() }}
+        <fieldset class = "form-group">
+            <legend class = "border-bottom-mb-4"> Create Group</legend>
+            <div class = "form-group">
+                    {{ form.name.label(class = "form-control-label") }}
+                    {{ form.name(class = "form-control form-control-lg") }}
+            </div>
+            <div class = "form-group">
+                    {{ form.isprivate.label(class = "form-control-label") }}
+                    {{ form.isprivate(class = "form-control form-control-lg") }}
+            </div>
+            <div class = "form-group">
+                    {{ form.description.label(class = "form-control-label") }}
+                    {{ form.description(class = "form-control form-control-lg") }}
+            </div>
+            <div class = "form-group">
+                {{ form.give_permission.label(class = "form-control-label") }}
+                {{ form.give_permission(class = "form-control form-control-lg") }}
+            </div>
+        </fieldset>
+        <div class = "form-group">
+            {{ form.submit(class = "btn btn_outline_info")}}
+        </div>
+</div>
+<div class = "border-top pt-3">
+    <small class = "text-muted">
+        If you want to check existing events: <a class = "ml-2" href = "{{ url_for('home_page')}}"> Home </a>
+    </small>
+</div>
+{% endblock content %}

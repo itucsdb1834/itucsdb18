@@ -1,0 +1,43 @@
+{% extends "layout2.html" %}
+{%block content %}
+<div class = "content-section">
+    <form method = "POST" action = "">
+        <!--Protection-->
+        {{ form.hidden_tag() }}
+        <fieldset class = "form-group">
+            <legend class = "border-bottom-mb-4"> Create Event</legend>
+            <div class = "form-group">
+                    {{ form.name.label(class = "form-control-label") }}
+                    {{ form.name(class = "form-control form-control-lg") }}
+            </div>
+            <div class = "form-group">
+                    {{ form.place.label(class = "form-control-label") }}
+                    {{ form.place(class = "form-control form-control-lg") }}
+            </div>
+            <div class = "form-group">
+                    {{ form.day.label(class = "form-control-label")}}
+                    {{ form.day(class = "form-control form-control-lg") }}
+            </div>
+            <div class = "form-group">
+                {{ form.month.label(class = "form-control-label")}}
+                {{ form.month(class = "form-control form-control-lg") }}
+            </div>
+            <div class = "form-group">
+                {{ form.year.label(class = "form-control-label")}}
+                {{ form.year(class = "form-control form-control-lg") }}
+            </div>
+            <div class = "form-group">
+                    {{ form.explanation.label(class = "form-control-label") }}
+                    {{ form.explanation(class = "form-control form-control-lg") }}
+            </div>
+        </fieldset>
+        <div class = "form-group">
+            {{ form.submit(class = "btn btn_outline_info")}}
+        </div>
+</div>
+<div class = "border-top pt-3">
+    <small class = "text-muted">
+        If you want to check existing events: <a class = "ml-2" href = "{{ url_for('home_page')}}"> Home </a>
+    </small>
+</div>
+{% endblock content %}
