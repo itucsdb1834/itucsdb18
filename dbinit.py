@@ -32,7 +32,7 @@ INIT_STATEMENTS = [
 	"private boolean default  false,"
 	"owner int NOT NULL,"
 	"description varchar(255),"
-	"unique(group_name,owner)"
+	"unique(group_name,owner),"
 	"primary key(group_id),"
 	"foreign key(owner)"
 		"references user_table(userid)"
