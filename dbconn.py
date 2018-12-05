@@ -8,8 +8,8 @@ class Database:
     @classmethod
     def initialise(cls):
         url = urlparse.urlparse(os.environ.get('DATABASE_URL'))
-        Database.__connection_pool = pool.ThreadedConnectionPool(url.path[1:], url.username, url.password,
-                                                                 url.hostname)
+        Database.__connection_pool = pool.ThreadedConnectionPool(1,100, url.username, url.password,
+                                                                 url.path[1:],url.hostname)
 
     @classmethod
     def get_connection(cls):
