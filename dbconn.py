@@ -1,4 +1,5 @@
 from psycopg2 import pool
+import os
 
 
 class Database:
@@ -6,8 +7,9 @@ class Database:
 
     @classmethod
     def initialise(cls):
-        Database.__connection_pool = pool.ThreadedConnectionPool(1, 10, user='postgres', password='1234',
-                                                                 database='itucsdb1834', host='localhost')
+        url = urlparse.urlparse(os.environ.get('DATABASE_URL'))
+        Database.__connection_pool = pool.ThreadedConnectionPool(url.path[1:], url.username, url.password,
+                                                                 url.hostname)
 
     @classmethod
     def get_connection(cls):
