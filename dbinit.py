@@ -83,7 +83,7 @@ INIT_STATEMENTS = [
 	"foreign key(group_id)"
 	"	references group_table(group_id)"
 	"	on delete cascade"
-		"on update cascade"
+	"	on update cascade"
     ");"
 ]
 
