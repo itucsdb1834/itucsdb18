@@ -1,7 +1,7 @@
 from psycopg2 import pool
 import urlparse
 import os
-import urlparse
+from urllib.parse import urlparse
 from os.path import exists
 from os import makedirs
 
@@ -12,7 +12,7 @@ class Database:
 
     @classmethod
     def initialise(cls):
-        url = urlparse.urlparse(os.environ.get('DATABASE_URL'))
+        url = urllib.parse.urlparse(os.environ.get('DATABASE_URL'))
         Database.__connection_pool = pool.ThreadedConnectionPool(1,100, url.username, url.password,
                                                                  url.path[1:],url.hostname)
 
