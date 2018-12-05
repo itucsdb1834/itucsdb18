@@ -24,7 +24,7 @@ INIT_STATEMENTS = [
 	"hobbies varchar(255),"
 	"description varchar(255),"
 	"PRIMARY KEY(userid)"
-    );",
+    ");",
     " CREATE TABLE group_table ("
 	"group_id serial NOT NULL UNIQUE,"
 	"group_name varchar(255) NOT NULL,"
@@ -38,7 +38,7 @@ INIT_STATEMENTS = [
 		"references user_table(userid)"
 		"on delete no action"
 		"on update no action"
-    );",
+    ");",
     " CREATE TABLE event_table (
 	"event_id serial NOT NULL UNIQUE,"
 	"group_id INT,"
@@ -58,7 +58,7 @@ INIT_STATEMENTS = [
 	"	references group_table(group_id)"
 	"	on delete set null"
 	"	on update cascade"
-    );",
+    ");",
     "CREATE TABLE event_user ("
 	"event_id INT NOT NULL,"
 	"user_id INT NOT NULL,"
@@ -84,7 +84,7 @@ INIT_STATEMENTS = [
 	"	references group_table(group_id)"
 	"	on delete cascade"
 		"on update cascade"
-    );"
+    ");"
 ]
 
 
