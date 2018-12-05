@@ -6,7 +6,7 @@ class Database:
 
     @classmethod
     def initialise(cls):
-        Database.__connection_pool = pool.ThreadedConnectionPool(1, 10, user='postgres', password='whereIreign67',
+        Database.__connection_pool = pool.ThreadedConnectionPool(1, 10, user='postgres', password='1234',
                                                                  database='itucsdb1834', host='localhost')
 
     @classmethod
