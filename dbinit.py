@@ -10,7 +10,7 @@ INIT_STATEMENTS = [
     "DROP TABLE IF EXISTS event_table CASCADE;",
     "DROP TABLE IF EXISTS group_table CASCADE;",
     "DROP TABLE IF EXISTS user_table CASCADE;",
-    "CREATE TABLE user_table(
+    "CREATE TABLE user_table("
 	"userid SERIAL NOT NULL UNIQUE,"
 	"username varchar(255) NOT NULL UNIQUE,"
 	"first_name varchar(255) NOT NULL,"
