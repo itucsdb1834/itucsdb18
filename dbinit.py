@@ -10,6 +10,7 @@ INIT_STATEMENTS = [
     "DROP TABLE IF EXISTS event_table CASCADE;",
     "DROP TABLE IF EXISTS group_table CASCADE;",
     "DROP TABLE IF EXISTS user_table CASCADE;",
+    "DROP TABLE IF EXISTS comment_table CASCADE;",
     "CREATE TABLE user_table("
 	"userid SERIAL NOT NULL UNIQUE,"
 	"username varchar(255) NOT NULL UNIQUE,"
@@ -17,7 +18,7 @@ INIT_STATEMENTS = [
 	"surname varchar(255) NOT NULL,"
 	"email varchar(255) NOT NULL UNIQUE,"
 	"passwrd varchar(255) NOT NULL,"
-	"gender char(1),"
+	"gender char(5),"
 	"age integer,"
 	"country varchar(50),"
 	"city varchar(50),"
@@ -84,7 +85,27 @@ INIT_STATEMENTS = [
 	"	references group_table(group_id)"
 	"	on delete cascade"
 	"	on update cascade"
-    ");"
+    ");",
+    "CREATE TABLE comment_table("
+	"comment_id SERIAL NOT NULL UNIQUE,"
+	"owner varchar(255) NOT NULL,"
+	"time varchar(255) NOT NULL,"
+	"comment varchar(255) NOT NULL,"
+	"subject varchar(255),"
+	"event_id INT NOT NULL,"
+	"is_edited Boolean DEFAULT FALSE,"
+	"send_notification Boolean Default False,"
+	"primary key(comment_id),"
+	"foreign key(event_id)"
+	"	references event_table(event_id)"
+	"	on delete cascade"
+	"	on update cascade,"
+	"foreign key(owner)"
+	"	references user_table(username)"
+	"	on delete cascade"
+	"	on update cascade"
+		
+	);"
 ]
 
 
