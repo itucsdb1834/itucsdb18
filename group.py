@@ -9,6 +9,58 @@ class Group():
         self.description = description
         self.give_permission = give_permission
         self.group_id = group_id
+        self.owner_name = None
+        self.participants = []
+        self.participant_no = 0
+
+    def read_with_id(self):
+        with ConnectionPool() as cursor:
+            cursor.execute('SELECT * FROM group_table WHERE group_id = %s' , (self.group_id,))
+            result = cursor.fetchone()
+            self.name = result[1]
+            self.isprivate = result[2]
+            self.owner = result[3]
+            self.description = result[4]
+            self.give_permission = result[5]
+            self.get_owner_name()
+            self.get_participants()
+
+    def get_owner_name(self):
+        with ConnectionPool() as cursor:
+            cursor.execute('SELECT username FROM user_table WHERE userid = %s' , (self.owner,))
+            self.owner_name = cursor.fetchone()[0]
+
+    def add_participant(self, username):
+        with ConnectionPool() as cursor:
+            cursor.execute('SELECT userid FROM user_table WHERE username = %s ' , (username, ))
+            userid = cursor.fetchone()[0]
+            if userid is None:
+                return False
+
+            cursor.execute('INSERT INTO group_user VALUES(%s,%s)' , (userid, self.group_id))
+            self.participant_no += 1
+            self.participants.append(username)
+
+    def delete_group(self):
+        with ConnectionPool() as cursor:
+            cursor. execute('DELETE FROM group_table WHERE group_id = %s' , (self.group_id,))
+
+    def update_group(self, name,isprivate,description,give_permission):
+        with ConnectionPool() as cursor:
+            cursor. execute('UPDATE group_table SET group_name=%s, isprivate=%s, description=%s, give_permission=%s WHERE group_id = %s' ,
+                            (name, isprivate, description, give_permission, self.group_id,))
+            self.name=name
+            self.give_permission=give_permission
+            self.isprivate=isprivate
+            self.description=description
+
+    def get_participants(self):
+        with ConnectionPool() as cursor:
+            cursor.execute('SELECT user_table.username FROM user_table RIGHT OUTER JOIN group_user ON group_user.user_id = user_table.userid WHERE group_user.group_id = %s ' , (self.group_id,))
+            participants = cursor.fetchall()
+        for participant in participants:
+            self.participants.append(participant[0])
+            self.participant_no = self.participant_no +1
 
     def save_to_db(self):
         with ConnectionPool() as cursor:
