@@ -3,8 +3,9 @@ from user import User
 from event import Event, Events
 from profile import Profile, MyProfile
 from group import Group, Groups
+from comment import Comment, Comments
 from dbconn import Database
-from forms2 import LoginForm, RegistrationForm, EventForm, TravelForm, ProfileForm, DeleteForm, PasswordForm, GroupForm, JoinEventForm, LeaveEventForm, ChangeEventForm
+from forms2 import LoginForm, RegistrationForm, EventForm, TravelForm, ProfileForm, DeleteForm, PasswordForm ,GroupForm, JoinEventForm, LeaveEventForm, ChangeEventForm, DeleteGroupForm, UpdateGroupForm, AddPeopleForm ,AddEventForm, ShowGroupEvents,UpdateGroupInfoForm, AddComment, UpdateComment
 from flask_login import LoginManager
 from flask_login.utils import login_required, login_user, current_user, logout_user
 from psycopg2 import IntegrityError
@@ -75,7 +76,7 @@ def change_event(event):
             updated_event.update_event(form.location.data,form.day.data, form.month.data, form.year.data, form.explanation.data);
             flash(f'Your event is updated successfully!', 'success')
         return redirect(url_for('owned_events'))
-    return render_template("update_event.html", title="Update Event", form=form, posts = posts, event = updated_event )
+    return render_template("update_event.html", title="Update Event", form=form, posts = posts, event = updated_event)
 
 @app.route("/createevent", methods = ['GET' , 'POST'])
 def create_event():
@@ -100,7 +101,7 @@ def create_group():
             group = Group(form.name.data , form.isprivate.data , current_user.id, form.description.data, form.give_permission.data, None)
             group.save_to_db()
             flash(f'Your group is created with name {form.name.data}!' , 'success')
-        return redirect(url_for('owned_groups'))
+            return redirect(url_for('owned_groups'))
     return render_template("creategroup.html" , title = "Create" , form = form, posts = posts)
 
 @app.route("/owned_groups" , methods = ['GET' , 'POST'])
@@ -109,15 +110,72 @@ def owned_groups():
     groups = Groups()
     groups.owned_groups(current_user.id)
     if request.method == 'POST':
-        event = request.form['event_id']
-        return redirect(url_for('events', event = event))
+        group = request.form['group_id']
+        print(group)
+        return redirect(url_for('group_info', group = group))
     return render_template("owned_groups.html" , title = "Owned Groups" ,posts = posts, groups = groups.arr)
+
+@app.route("/group/<group>" , methods = ['GET' , 'POST'])
+def group_info(group):
+    posts = MyProfile(current_user.username)
+    mygroup = Group(None,None,None,None,None,group)
+    mygroup.read_with_id()
+    owned = False
+    if current_user.id == mygroup.owner:
+        owned = True
+    permission = mygroup.give_permission
+    deleteform = DeleteGroupForm()
+    updateform = UpdateGroupForm()
+    addpeople = AddPeopleForm()
+    addevent = AddEventForm()
+    showevents = ShowGroupEvents()
+
+    if request.method == 'POST':
+        if deleteform.submit3.data and deleteform.validate_on_submit():
+            mygroup.delete_group()
+            flash(f'Group {mygroup.name} is deleted!' , 'success')
+            return redirect(url_for('owned_groups'))
+        elif addpeople.submit1.data and addpeople.validate_on_submit():
+            try:
+                mygroup.add_participant(addpeople.username.data)
+                flash(f'User {addpeople.username.data} is added to group' , 'success')
+            except:
+                flash('User already in group or there is no such user!')
+            return redirect(url_for('group_info' , group = group))
+        elif updateform.submit4.data and updateform.validate_on_submit():
+            return redirect(url_for('update_group_info' , group = group))
+
+    if owned:
+        return render_template("group.html" , title= 'Group', posts = posts , group = mygroup, deleteform = deleteform , updateform = updateform,
+        addpeople = addpeople, addevent = addevent, showevents = showevents, owned = True, permission = True)
+    elif permission:
+        return render_template("group.html" , title= 'Group', posts = posts , group = mygroup, updateform = updateform,
+        addpeople = addpeople, addevent = addevent, showevents = showevents, owned = False , permission = True)
+    else:
+        return render_template("group.html" , title= 'Group', posts = posts , group = mygroup, showevents = showevents , owned = False, permission = False)
+
+@app.route("/update_group_info/<group>", methods=['GET', 'POST'])
+def update_group_info(group):
+    form = UpdateGroupInfoForm()
+    posts = MyProfile(current_user.username)
+    mygroup = Group(None, None, None, None, None, group)
+    mygroup.read_with_id()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            mygroup.update_group(form.name.data,form.isprivate.data,form.description.data,form.give_permission.data)
+            flash(f'Your group information is updated successfully!', 'success')
+            return redirect(url_for('group_info', group = group))
+    return render_template("update_group.html", title="Update Group", form=form, posts=posts, group=mygroup)
 
 @app.route("/my_groups" , methods = ['GET' , 'POST'])
 def my_groups():
     posts = MyProfile(current_user.username)
     groups = Groups()
     groups.my_groups(current_user.id)
+    if request.method == 'POST':
+        group = request.form['group_id']
+        print(group)
+        return redirect(url_for('group_info', group = group))
     return render_template("my_groups.html" , title = "My Groups" ,posts = posts, groups = groups.arr)
 
 
@@ -193,6 +251,7 @@ def events(event):
     owned = current_user.check_owned(event)
     joined = current_user.check_participant_event(event)
     posts = MyProfile(current_user.username)
+    commentform = AddComment()
     if joined:
         form = LeaveEventForm()
     else:
@@ -200,14 +259,47 @@ def events(event):
     if event is not None:
         myevent = Event(None,None,None,None,None,None,None,None)
         myevent.read_with_id(event)
+        event_comments = Comments()
+        event_comments.print_comments(event)
     if request.method == 'POST':
-        if form.validate_on_submit():
+        if commentform.submit.data and commentform.validate_on_submit():
+            newcomment = Comment(None, current_user.username, commentform.comment.data, commentform.subject.data, event, False, commentform.send_notification.data )
+            newcomment.save_to_db()
+        elif form.submit.data and form.validate_on_submit():
             if joined:
                 myevent.delete_participant(current_user.id)
             else:
                 myevent.add_participant(current_user.id)
+
         return redirect(url_for('events' , event = myevent.event_id))
-    return render_template("event.html" , title= 'Event', posts = posts , event = myevent, form = form , owned = owned)
+    return render_template("event.html" , title= 'Event', posts = posts , event = myevent, form = form , owned = owned, comments = event_comments.comments, commentform = commentform)
+
+@app.route('/update_comment' , methods = ['GET' , 'POST'])
+def update_comment():
+    commentid = request.form['comment_id_update']
+    return redirect(url_for('change_comment' , commentid = commentid))
+
+@app.route('/change_comment/<commentid>' , methods = ['GET' , 'POST'])
+def change_comment(commentid):
+    posts = MyProfile(current_user.username)
+    form = UpdateComment()
+    newcomment = Comment(commentid, None,None,None,None,None,None)
+    event = newcomment.get_eventid()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            newcomment.update_comment(form.comment.data, form.subject.data, form.send_notification.data)
+            return redirect(url_for('events' , event = event))
+    return render_template("update_comment.html" , title= 'Update Comment', posts = posts ,form = form )
+
+
+@app.route('/delete_comment' , methods = ['POST'])
+def delete_comment():
+    if request.method == 'POST':
+        commentid = request.form['comment_id_delete']
+        newcomment = Comment(commentid, None, None, None, None, None, None )
+        event = newcomment.get_eventid()
+        newcomment.delete_comment()
+        return redirect(url_for('events', event = event))
 
 @app.route("/ownedevents" , methods = ['GET' , 'POST'])
 def owned_events():
@@ -223,8 +315,6 @@ def owned_events():
 def my_events():
     events = Events()
     events.my_events(current_user.id)
-    print("HELLO")
-    print(events.arr[0])
     posts = MyProfile(current_user.username)
     if request.method == 'POST':
         event = request.form['event_id']
