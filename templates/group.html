@@ -1,0 +1,42 @@
+{% extends "layout3.html" %}
+{%block content %}
+<div class = "content-section">
+    <fieldset class = "form-group">
+        <legend class = "border-bottom-mb-4"> Group: {{group.name}} </legend>
+        <table style="width:100%" class = "table">
+            <tr>
+                <th>Name</th>
+                <td>{{group.name}}</td>
+            </tr>
+            <tr>
+                <th>Admin</th>
+                <td>{{group.owner_name}}</td>
+            </tr>
+            <tr>
+                <th>Explanation</th>
+                <td>{{group.description}}</td>
+            </tr>
+            <tr>
+                <th>Participants:</th>
+                <td>
+                </td>
+            </tr>
+                {%for x in range(group.participant_no) %}
+                    <tr>
+                        <td>
+                            {{group.participants[x]}}
+                        </td>
+                        <td>
+                            <form action="/group" method = "post">
+                              <input type="hidden" name= "username" value= {{group.participants[x]}} />
+                              <input class = "form-group" type="submit"  value = "Show Profile" >
+                             </form>
+                        </td>
+
+                    </tr>
+                {%endfor%}
+        </table>
+    </fieldset>
+
+</div>
+{%endblock content %}

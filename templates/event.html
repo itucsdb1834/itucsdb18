@@ -1,4 +1,3 @@
-
 {% extends "layout2.html" %}
 {%block content %}
 <div class = "content-section">
@@ -38,14 +37,71 @@
                 <td>{{event.explanation}}</td>
             </tr>
             <tr>
-                <th>Participants</th>
-                {%for x in range(event.no_of_participants) %}
+                <th>Participants:</th>
                 <td>
-                    {{event.participant_arr[x]}}
                 </td>
-                {%endfor%}
             </tr>
+                {%for x in range(event.no_of_participants) %}
+                    <tr>
+                        <td>
+                            {{event.participant_arr[x]}}
+                        </td>
+                        <td>
+                            <form action="/event" method = "post">
+                              <input type="hidden" name= "username" value= {{event.participant_arr[x]}} />
+                              <input class = "form-group" type="submit"  value = "Show Profile" >
+                             </form>
+                        </td>
+
+                    </tr>
+                {%endfor%}
         </table>
+        <h5> Comments </h5>
+        <h6> Add Comment </h6>
+        <form method = "POST" action = "">
+            <!--Protection-->
+            {{ commentform.hidden_tag() }}
+            <fieldset class = "form-group">
+                <div class = "form-group">
+                    {{ commentform.subject.label(class = "form-control-label") }}
+                    {{ commentform.subject(class = "form-control form-control-lg" ) }}
+                </div>
+                <div class = "form-group">
+                    {{ commentform.comment.label(class = "form-control-label") }}
+                    {{ commentform.comment(class = "form-control form-control-lg" ) }}
+                </div>
+                <div class = "form-group">
+                    {{ commentform.send_notification.label(class = "form-control-label") }}
+                    {{ commentform.send_notification(class = "form-control form-control-lg") }}
+                </div>
+            </fieldset>
+            <div class = "form-group">
+                {{ commentform.submit(class = "btn btn_outline_info")}}
+            </div>
+        </form>
+        {% for comment in comments%}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <small class="text">{{comment.owner}}</small>
+                    <small class="text-muted">{{comment.time}}</small>
+                </div>
+                <p><a class="article-content" >Subject: {{ comment.subject }}</a></p>
+                <p class="article-content">{{ comment.comment }}</p>
+                <div class="article-metadata">
+                    <small class="text-muted">Edited: {{comment.is_edited}}</small>
+                </div>
+                {%if comment.owner == posts.username%}
+                <form action="" method = "post">
+                    <input type="hidden" name= "comment_id_delete" value= {{comment.comment_id}} />
+                    <input type="submit"  value = "Delete" formaction="/delete_comment">
+                    <input type="hidden" name= "comment_id_update" value= {{comment.comment_id}} />
+                    <input type="submit"  value = "Update" formaction="/update_comment">
+                </form>
+                {%endif%}
+            </div>
+        </article>
+        {%endfor%}
     </fieldset>
 
 </div>

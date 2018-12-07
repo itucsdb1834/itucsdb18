@@ -27,8 +27,6 @@
                           </div>
                           <!-- Navbar Right Side -->
                             <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="/createevent">Create Event</a>
-                            <a class="nav-item nav-link" href="/creategroup">Create Group</a>
                             <a class="nav-item nav-link" href="/">Logout</a>
                             </div>
                         </div>
@@ -52,6 +50,79 @@
                           </div>
                           <div class="col-md-4">
                             <div class="content-section">
+                              <h3>Group Operations </h3>
+                                {%if owned %}
+                                  <form method = "POST" action = "">
+                                    {{ addpeople.hidden_tag() }}
+                                    <div class = "form-group">
+                                      {{ addpeople.username.label(class = "form-control-label") }}
+                                      {{ addpeople.username(class = "form-control form-control-lg") }}
+                                    </div>
+                                    <div class = "form-group">
+                                        {{ addpeople.submit1(class = "btn btn_outline_info")}}
+                                    </div>
+                                  </form>
+                                  <form method = "POST" action = "">
+                                    {{ addevent.hidden_tag() }}
+                                    <div class = "form-group">
+                                        {{ addevent.submit2(class = "btn btn_outline_info")}}
+                                    </div>
+                                  </form>
+                                  <form method = "POST" action = "">
+                                    {{ deleteform.hidden_tag() }}
+                                    <div class = "form-group">
+                                        {{ deleteform.submit3(class = "btn btn_outline_info")}}
+                                    </div>
+                                  </form>
+                                  <form method = "POST" action = "">
+                                    {{ updateform.hidden_tag() }}
+                                    <div class = "form-group">
+                                        {{ updateform.submit4(class = "btn btn_outline_info")}}
+                                    </div>
+                                  </form>
+                                  <form method = "POST" action = "">
+                                    {{ showevents.hidden_tag() }}
+                                    <div class = "form-group">
+                                        {{ showevents.submit5(class = "btn btn_outline_info")}}
+                                    </div>
+                                  </form>
+                                  {%elif permission %}
+                                    <form method = "POST" action = "">
+                                      {{ addpeople.hidden_tag() }}
+                                      <div class = "form-group">
+                                        {{ addpeople.username.label(class = "form-control-label") }}
+                                        {{ addpeople.username(class = "form-control form-control-lg") }}
+                                      </div>
+                                      <div class = "form-group">
+                                          {{ addpeople.submit1(class = "btn btn_outline_info")}}
+                                      </div>
+                                    </form>
+                                    <form method = "POST" action = "">
+                                      {{ addevent.hidden_tag() }}
+                                      <div class = "form-group">
+                                          {{ addevent.submit2(class = "btn btn_outline_info")}}
+                                      </div>
+                                    </form>
+                                    <form method = "POST" action = "">
+                                      {{ updateform.hidden_tag() }}
+                                      <div class = "form-group">
+                                          {{ updateform.submit4(class = "btn btn_outline_info")}}
+                                      </div>
+                                    </form>
+                                    <form method = "POST" action = "">
+                                      {{ showevents.hidden_tag() }}
+                                      <div class = "form-group">
+                                          {{ showevents.submit5(class = "btn btn_outline_info")}}
+                                      </div>
+                                    </form>
+                                  {% else %}
+                                    <form method = "POST" action = "">
+                                      {{ showevents.hidden_tag() }}
+                                      <div class = "form-group">
+                                          {{ showevents.submit5(class = "btn btn_outline_info")}}
+                                      </div>
+                                    </form>
+                                  {%endif%}
                               <h3>Manage Your Profile </h3>
                               <p class='text-muted'>You are logged in as {{posts.username}}.
                                 <ul class="list-group">
