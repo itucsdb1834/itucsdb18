@@ -103,9 +103,8 @@ INIT_STATEMENTS = [
 	"foreign key(owner)"
 	"	references user_table(username)"
 	"	on delete cascade"
-	"	on update cascade"
-		
-	);"
+	"	on update cascade"	
+	");"
 ]
 
 
