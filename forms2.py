@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, RadioField, IntegerField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, RadioField, IntegerField, TextField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 class RegistrationForm(FlaskForm):
@@ -78,3 +78,38 @@ class ChangeEventForm(FlaskForm):
     year = IntegerField("Year" , validators=  [DataRequired()])
     explanation = StringField("Explanation", validators=[DataRequired()])
     submit = SubmitField("Update Event")
+
+class DeleteGroupForm(FlaskForm):
+    submit3 = SubmitField("Delete Group")
+
+class UpdateGroupForm(FlaskForm):
+    submit4 = SubmitField("Update Group")
+
+class AddPeopleForm(FlaskForm):
+    username = StringField("Input username for adding participant" )
+    submit1 = SubmitField("Add People")
+
+class AddEventForm(FlaskForm):
+    submit2 = SubmitField("Add Group Event")
+
+class ShowGroupEvents(FlaskForm):
+    submit5 = SubmitField("View Group Events")
+
+class UpdateGroupInfoForm(FlaskForm):
+    name = StringField("Name", validators=[DataRequired()])
+    isprivate = RadioField('Do you want to approve new participants before they join group?', choices=[('Y', 'Private'), ('N', 'Public')] , validators = [DataRequired()])
+    description = StringField("Description")
+    give_permission = RadioField('Can other participants alter group information?', choices=[('Y', 'Yes'), ('N', 'No')] , validators = [DataRequired()])
+    submit = SubmitField("Update Group")
+
+class AddComment(FlaskForm):
+    subject = StringField("Subject", validators=[DataRequired()])
+    comment = TextField("Comment", validators=[DataRequired()])
+    send_notification = BooleanField("Send Notification", default = False )
+    submit = SubmitField("Post Comment")
+
+class UpdateComment(FlaskForm):
+    subject = StringField("Subject", validators=[DataRequired()])
+    comment = TextField("Comment", validators=[DataRequired()])
+    send_notification = BooleanField("Send Notification", default = False )
+    submit = SubmitField("Update Comment")
