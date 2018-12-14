@@ -8,8 +8,8 @@ INIT_STATEMENTS = [
                    "DROP TABLE IF EXISTS upvote_table CASCADE;",
                    "DROP TABLE IF EXISTS request_table CASCADE;",
                    "DROP TABLE IF EXISTS comment_table CASCADE;",
+		   "DROP TABLE IF EXISTS event_user CASCADE;",
                    "DROP TABLE IF EXISTS group_user CASCADE;",
-                   "DROP TABLE IF EXISTS event_user CASCADE;",
                    "DROP TABLE IF EXISTS event_table CASCADE;",
                    "DROP TABLE IF EXISTS group_table CASCADE;",
                    "DROP TABLE IF EXISTS user_table CASCADE;",
@@ -29,7 +29,22 @@ INIT_STATEMENTS = [
                                            "description varchar(255),"
                                            "PRIMARY KEY(userid)"
                                            ");",
-                "CREATE TABLE event_table ("
+                "CREATE TABLE group_table ( "
+                                        	"group_id serial NOT NULL UNIQUE, "
+                                        	"group_name varchar(255) NOT NULL, "
+                                        	"give_permission boolean default false, "
+                                        	"isprivate boolean default  false, "
+                                        	"owner int NOT NULL, "
+                                        	"max_number INT, "
+                                        	"description varchar(255), "
+                                        	"unique(group_name,owner), "
+                                        	"primary key(group_id), "
+                                        	"foreign key(owner) "
+                                        		"references user_table(userid) "
+                                        		"on delete cascade "
+                                        		"on update cascade "
+                ");",
+		 "CREATE TABLE event_table ("
 	                                       "event_id serial NOT NULL UNIQUE, "
 	                                       "group_id INT, "
 	                                       "event_name varchar(255)  NOT NULL, "
@@ -48,22 +63,6 @@ INIT_STATEMENTS = [
 		                                          "on delete cascade "
 		                                          "on update cascade "
                                             ");",
-
-                "CREATE TABLE group_table ( "
-                                        	"group_id serial NOT NULL UNIQUE, "
-                                        	"group_name varchar(255) NOT NULL, "
-                                        	"give_permission boolean default false, "
-                                        	"isprivate boolean default  false, "
-                                        	"owner int NOT NULL, "
-                                        	"max_number INT, "
-                                        	"description varchar(255), "
-                                        	"unique(group_name,owner), "
-                                        	"primary key(group_id), "
-                                        	"foreign key(owner) "
-                                        		"references user_table(userid) "
-                                        		"on delete cascade "
-                                        		"on update cascade "
-                ");",
                 "CREATE TABLE event_user ( "
                                         	"event_id INT NOT NULL, "
                                         	"user_id INT NOT NULL, "
