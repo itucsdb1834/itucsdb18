@@ -45,6 +45,8 @@ class Group():
                 self.get_owner_name()
                 new = New(None, username ,self.owner_name, self.group_id,None, None, 'group' , 'joined', False, None,None )
                 new.save_to_db()
+                new_2 = New(None, username ,username, self.group_id,None, None, 'group' , 'joined', False, None,None )
+                new_2.save_to_db()
             else:
                 raise Exception('Group is already full no more place!')
 

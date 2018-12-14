@@ -198,7 +198,7 @@ class Events():
         else:
             total = str(year) + '-' + str(month) + '-' + str(day)
         with ConnectionPool() as cursor:
-            cursor.execute('SELECT * FROM event_table WHERE event_id IN(SELECT event_id FROM event_user WHERE user_id = %s) AND group_id=%s AND (date) >= (%s) ORDER BY (date,time)' , (userid, groupid, total))
+            cursor.execute('SELECT * FROM event_table WHERE group_id = %s AND date >= %s ORDER BY (date,time)' , ( groupid, total))
             events = cursor.fetchall()
         for event in events:
             event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
