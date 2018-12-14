@@ -22,10 +22,15 @@
                 {{ form.give_permission.label(class = "form-control-label") }}
                 {{ form.give_permission(class = "form-control form-control-lg") }}
             </div>
+            <div class = "form-group">
+                {{ form.max_number.label(class = "form-control-label") }}
+                {{ form.max_number(class = "form-control form-control-lg") }}
+            </div>
         </fieldset>
         <div class = "form-group">
             {{ form.submit(class = "btn btn_outline_info")}}
         </div>
+      </form>
 </div>
 <div class = "border-top pt-3">
     <small class = "text-muted">

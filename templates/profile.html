@@ -3,7 +3,7 @@
 {%block content %}
 <div class = "content-section">
     <fieldset class = "form-group">
-        <legend class = "border-bottom-mb-4"> Welcome {{posts.name}}! </legend>
+        <legend class = "border-bottom-mb-4">  {{posts.name}} {{posts.surname}} </legend>
         <table style="width:100%" class = "table">
             <tr>
                 <th>Name</th>
@@ -41,9 +41,8 @@
                 <th>Description</th>
                 <td>{{posts.description}}</td>
             </tr>
-            
+
         </table>
     </fieldset>
 </div>
 {%endblock content %}
-

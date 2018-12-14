@@ -12,16 +12,12 @@
                 {{ form.location(class = "form-control form-control-lg" , value = event.place) }}
             </div>
             <div class = "form-group">
-                {{ form.day.label(class = "form-control-label") }}
-                {{ form.day(class = "form-control form-control-lg" , value = event.day) }}
+                {{ form.date.label(class = "form-control-label") }}
+                {{ form.date(class = "form-control form-control-lg" , value = event.date) }}
             </div>
             <div class = "form-group">
-                {{ form.month.label(class = "form-control-label") }}
-                {{ form.month(class = "form-control form-control-lg", value = event.month) }}
-            </div>
-            <div class = "form-group">
-                {{ form.year.label(class = "form-control-label") }}
-                {{ form.year(class = "form-control form-control-lg", value = event.year) }}
+                {{ form.time.label(class = "form-control-label") }}
+                {{ form.time(class = "form-control form-control-lg", value = event.time) }}
             </div>
             <div class = "form-group">
                 {{ form.explanation.label(class = "form-control-label") }}

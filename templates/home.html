@@ -7,10 +7,10 @@
         <div class="media-body">
             <div class="article-metadata">
                 <form action="/home" method = "post">
+                    <small class="text-muted">{{ event.date}} {{ event.time}}</small>
                     <input type="hidden" name= "event_id" value= {{event.event_id}} />
                     <input type="submit" value = "View">
                 </form>
-                <small class="text-muted">{{ event.day }}.{{event.month}}.{{event.year}}</small>
             </div>
             <h2><a class="article-title" href="#">{{ event.name }}</a></h2>
             <p class="article-content">{{ event.explanation }}</p>

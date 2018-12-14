@@ -1,7 +1,7 @@
 {% extends "layout2.html" %}
   {%block content %}
-    <h1> My Events </h1>
-    <h5> Here are events you are participating: </h5>
+    <h1> {{header}} </h1>
+    <h5> Here are events you can participate: </h5>
     {% for event in events%}
     <article class="media content-section">
         <div class="media-body">
@@ -9,9 +9,10 @@
                 <form action="/home" method = "post">
                     <input type="hidden" name= "event_id" value= {{event.event_id}} />
                     <input type="submit"  value = "View">
+                    <small class="text-muted">{{ event.date}} {{ event.time}}</small>
                 </form>
 
-                <small class="text-muted">{{ event.day }}.{{event.month}}.{{event.year}}</small>
+
             </div>
             <h2><a class="article-title" href="#">{{ event.name }}</a></h2>
             <p class="article-content">{{ event.explanation }}</p>

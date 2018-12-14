@@ -1,0 +1,19 @@
+{% extends "layout2.html" %}
+  {%block content %}
+    <h1> News </h1>
+    {% for new in news%}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <form action="/delete_news" method = "post">
+                    <input type="hidden" name= "news_id_delete" value= {{new.news_id}} />
+                    <input type="submit" formaction = "/delete_news/{{new.news_id}}" value = "Delete">
+                </form>
+                <small> {{new.time}} </small>
+            </div>
+            <h2><a class="article-title" href="{{new.link}}">{{ new.message }}</a></h2>
+        </div>
+    </article>
+    {% endfor %}
+
+{% endblock content %}

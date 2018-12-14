@@ -30,7 +30,11 @@
             </tr>
             <tr>
                 <th>Date</th>
-                <td>{{event.day}}.{{event.month}}.{{event.year}}</td>
+                <td>{{event.date}}</td>
+            </tr>
+            <tr>
+                <th>Time</th>
+                <td>{{event.time}}</td>
             </tr>
             <tr>
                 <th>Explanation</th>
@@ -49,7 +53,7 @@
                         <td>
                             <form action="/event" method = "post">
                               <input type="hidden" name= "username" value= {{event.participant_arr[x]}} />
-                              <input class = "form-group" type="submit"  value = "Show Profile" >
+                              <input class = "form-group" type="submit"  formaction = "/profiles" value = "Show Profile" >
                              </form>
                         </td>
 

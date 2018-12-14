@@ -16,6 +16,10 @@
                 {{ form.isprivate(class = "form-control form-control-lg") }}
             </div>
             <div class = "form-group">
+                {{ form.max_number.label(class = "form-control-label") }}
+                {{ form.max_number(class = "form-control form-control-lg", value = group.max_number) }}
+            </div>
+            <div class = "form-group">
                 {{ form.description.label(class = "form-control-label") }}
                 {{ form.description(class = "form-control form-control-lg", value = group.description) }}
             </div>

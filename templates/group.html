@@ -2,7 +2,17 @@
 {%block content %}
 <div class = "content-section">
     <fieldset class = "form-group">
-        <legend class = "border-bottom-mb-4"> Group: {{group.name}} </legend>
+        <form action="/home" method = "post">
+            <legend class = "border-bottom-mb-4"> Group: {{group.name}}
+                <input type="hidden" name= "group_id" value= {{group.group_id}} />
+                {%if not joined and not owned and not group.isprivate%}
+                    <input type="submit"  value = "Join" formaction = "/join_group">
+                {%endif%}
+                {%if joined and not owned%}
+                    <input type="submit" value = "Leave" formaction = "/leave_group">
+                {%endif%}
+            </legend>
+        </form>
         <table style="width:100%" class = "table">
             <tr>
                 <th>Name</th>
@@ -13,12 +23,17 @@
                 <td>{{group.owner_name}}</td>
             </tr>
             <tr>
+                <th>Maximum Number of Participants</th>
+                <td>{{group.max_number}}</td>
+            </tr>
+            <tr>
                 <th>Explanation</th>
                 <td>{{group.description}}</td>
             </tr>
             <tr>
                 <th>Participants:</th>
                 <td>
+                  {{group.participant_no}} people
                 </td>
             </tr>
                 {%for x in range(group.participant_no) %}
@@ -27,15 +42,48 @@
                             {{group.participants[x]}}
                         </td>
                         <td>
-                            <form action="/group" method = "post">
+                            <form action="" method = "post">
                               <input type="hidden" name= "username" value= {{group.participants[x]}} />
-                              <input class = "form-group" type="submit"  value = "Show Profile" >
+                              <input class = "form-group" type="submit" formaction="/profiles" value = "Show Profile" >
+                              {%if owned and posts.username!= group.participants[x]%}
+                                    <input type="hidden" name= "delete_participant" value= {{group.participants[x]}} />
+                                    <input type="hidden" name= "delete_participant_group" value= {{group.group_id}} />
+                                    <input class = "form-group" type="submit" formaction = "/delete_participants"  value = "Delete Participant" >
+                              {% endif %}
                              </form>
                         </td>
 
                     </tr>
                 {%endfor%}
         </table>
+        {% for request in requests%}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <small class="text">{{request.owner}}</small>
+                    <small class="text-muted">{{request.time_created}}</small>
+                </div>
+                <p><a class="article-content" >Name: {{ request.name }}</a></p>
+                <p class="article-content">{{ request.explanation }}</p>
+                <div class="article-metadata">
+                    <small class="text-muted">Upvote number: {{request.up_vote}}</small>
+                </div>
+                <form action="" method = "post">
+                  {%if request.owner == posts.username%}
+                    <input type="hidden" name= "request_id_delete" value= {{request.request_id}} />
+                    <input type="submit"  value = "Delete" formaction="/delete_request">
+                  {%endif%}
+                  {%if request.is_upvoted(posts.username)%}
+                    <input type="hidden" name= "request_id_upvote" value= {{request.request_id}} />
+                    <input type="submit"  value = "DownVote" formaction="/upvote">
+                  {%else%}
+                    <input type="hidden" name= "request_id_upvote" value= {{request.request_id}} />
+                    <input type="submit"  value = "UpVote" formaction="/upvote">
+                  {%endif%}
+                </form>
+            </div>
+        </article>
+        {%endfor%}
     </fieldset>
 
 </div>

@@ -1,7 +1,6 @@
 {% extends "layout2.html" %}
   {%block content %}
-    <h1> My Groups </h1>
-    <h5> Here are groups created by you: </h5>
+    <h1> {{ title }} </h1>
     {% for group in groups%}
     <article class="media content-section">
         <div class="media-body">

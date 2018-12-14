@@ -29,6 +29,10 @@
                             <div class="navbar-nav">
                             <a class="nav-item nav-link" href="/createevent">Create Event</a>
                             <a class="nav-item nav-link" href="/creategroup">Create Group</a>
+                            <a class="nav-item nav-link" href="/news">News</a>
+                            <font color = "red">
+                            <a> {{posts.unread_messages}}</a>
+                            </font>
                             <a class="nav-item nav-link" href="/">Logout</a>
                             </div>
                         </div>
@@ -52,20 +56,46 @@
                           </div>
                           <div class="col-md-4">
                             <div class="content-section">
-                              <h3>Manage Your Profile </h3>
-                              <p class='text-muted'>You are logged in as {{posts.username}}.
-                                <ul class="list-group">
+                                <h3>Manage Your Profile </h3>
+                                <p class='text-muted'>You are logged in as {{posts.username}} .
+                                  <ul class="list-group">
                                   <a class="list-group-item list-group-item-light" href = "/profile">Your Profile</a>
                                   <a class="list-group-item list-group-item-light" href = "/profile/update">Update Your Information</a>
-                                  <a class="list-group-item list-group-item-light" href = "/profile/security">Change Password</a>
                                   <a class="list-group-item list-group-item-light" href = "/profile/delete">Delete Your Account</a>
+                                  </ul>
+                                </p>
+                                <h3>Discover </h3>
+                                <p class='text-muted'>
+                                  <ul class="list-group">
+                                  <a class="list-group-item list-group-item-light" >Events
+                                  <form action="" method = "POST" >
+                                      <p class='text-muted'>Search with:</p>
+                                      <select name="event_option" class = "form-control" id = "Group Select">
+                                           <option value="Name"> Name </option>
+                                           <option value="Location"> Location </option>
+                                           <option value="Date"> Date </option>
+                                           <option value="Owner"> Owner </option>
+                                      </select>
+                                      <input type="text" name="input" ></input>
+                                      <input type="submit"  value = "Search Event" formaction="/SearchEvents"></input>
+                                  </form>
+                                  </a>
+                                  <a class="list-group-item list-group-item-light" >Groups
+                                  <form  action="" method = "POST" >
+                                      <p class='text-muted'>Search with:</p>
+                                        <select name="group_option" class = "form-control" id = "Group Select">
+                                          <option value = "Name"> Name </option>
+                                          <option value = "Owner"> Owner </option>
+                                        </select>
+                                      <input type="text" name="input"> </input>
+                                      <input type="submit"  value = "Search Group" formaction="/SearchGroups"> </input>
+                                   </form>
+                                   </a>
                                 </ul>
                               </p>
                                 <h3>Events </h3>
                                 <p class='text-muted'>
-                                    You have incoming //3 events.
                                     <ul class="list-group">
-                                        <a class="list-group-item list-group-item-light" href="/home">Discover new events</a>
                                         <a class="list-group-item list-group-item-light" href="/ownedevents">Owned Events</a>
                                         <a class="list-group-item list-group-item-light" href="/myevents">My Events</a>
                                         <a class="list-group-item list-group-item-light" href="/createevent">Create Event</a>
@@ -73,7 +103,6 @@
                                 </p>
                                 <h3>Groups </h3>
                                 <p class='text-muted'>
-                                    You have incoming //3 events.
                                     <ul class="list-group">
                                         <a class="list-group-item list-group-item-light" href="/owned_groups">Owned Groups</a>
                                         <a class="list-group-item list-group-item-light" href="/my_groups">My Groups</a>

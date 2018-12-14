@@ -27,6 +27,10 @@
                           </div>
                           <!-- Navbar Right Side -->
                             <div class="navbar-nav">
+                            <a class="nav-item nav-link" href="/news">News</a>
+                            <font color = "red">
+                            <a> {{posts.unread_messages}}</a>
+                            </font>
                             <a class="nav-item nav-link" href="/">Logout</a>
                             </div>
                         </div>
@@ -50,6 +54,7 @@
                           </div>
                           <div class="col-md-4">
                             <div class="content-section">
+                            {%if joined %}
                               <h3>Group Operations </h3>
                                 {%if owned %}
                                   <form method = "POST" action = "">
@@ -60,6 +65,12 @@
                                     </div>
                                     <div class = "form-group">
                                         {{ addpeople.submit1(class = "btn btn_outline_info")}}
+                                    </div>
+                                  </form>
+                                  <form method = "POST" action = "">
+                                    {{ create_request.hidden_tag() }}
+                                    <div class = "form-group">
+                                        {{ create_request.submit(class = "btn btn_outline_info")}}
                                     </div>
                                   </form>
                                   <form method = "POST" action = "">
@@ -123,18 +134,17 @@
                                       </div>
                                     </form>
                                   {%endif%}
+                            {%endif%}
                               <h3>Manage Your Profile </h3>
                               <p class='text-muted'>You are logged in as {{posts.username}}.
                                 <ul class="list-group">
                                   <a class="list-group-item list-group-item-light" href = "/profile">Your Profile</a>
                                   <a class="list-group-item list-group-item-light" href = "/profile/update">Update Your Information</a>
-                                  <a class="list-group-item list-group-item-light" href = "/profile/security">Change Password</a>
                                   <a class="list-group-item list-group-item-light" href = "/profile/delete">Delete Your Account</a>
                                 </ul>
                               </p>
                                 <h3>Events </h3>
                                 <p class='text-muted'>
-                                    You have incoming //3 events.
                                     <ul class="list-group">
                                         <a class="list-group-item list-group-item-light" href="/home">Discover new events</a>
                                         <a class="list-group-item list-group-item-light" href="/ownedevents">Owned Events</a>
@@ -144,7 +154,6 @@
                                 </p>
                                 <h3>Groups </h3>
                                 <p class='text-muted'>
-                                    You have incoming //3 events.
                                     <ul class="list-group">
                                         <a class="list-group-item list-group-item-light" href="/owned_groups">Owned Groups</a>
                                         <a class="list-group-item list-group-item-light" href="/my_groups">My Groups</a>
