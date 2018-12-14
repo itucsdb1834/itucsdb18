@@ -174,9 +174,9 @@ INIT_STATEMENTS = [
                                         		"on update cascade "
                 "); ",
 		"INSERT INTO user_table(username,first_name, surname, email,passwrd)"
-		"VALUES(idilugurnal, Idil, Ugurnal, idilugurnal@gmail.com, 12345);",
+		"VALUES('idilugurnal', 'Idil', 'Ugurnal', 'idilugurnal@gmail.com', '12345');",
 		"INSERT INTO user_table(username,first_name, surname, email,passwrd)"
-		"VALUES(caglakaya, Cagla, Kaya, caglakaya@gmail.com, 12345);"
+		"VALUES('caglakaya', 'Cagla, Kaya', 'caglakaya@gmail.com', '12345');"
 
                    ]
 
