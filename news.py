@@ -46,7 +46,7 @@ class New():
             elif(self.action == 'updated' or self.action == 'created request in' or self.action == 'joined' or self.action == 'request_fulfilled' or self.action =='deleted you from' or self.action =='left'):
                 self.link = '/group/' + str(self.group_id)
             elif(self.action == 'created event in' or self.action == 'updated event in'):
-                self.link = '/groupevent/' + str(self.group_id)
+                self.link = '/groupevents/' + str(self.group_id)
 
     def save_to_db(self):
         ts = time.time()
