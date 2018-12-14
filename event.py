@@ -1,17 +1,18 @@
 import psycopg2
 from dbconn import ConnectionPool
 import datetime
+from group import Group
+from news import New
 
 class Event():
-    def __init__(self, name , place, owner , day, month, year, explanation, group_id):
+    def __init__(self, name , place, owner , date, time, explanation, group_id):
         self.group_id = group_id
         self.group_name = None
         self.name = name
         self.place = place
         self.owner = owner
-        self.day = day
-        self.month = month
-        self.year = year
+        self.date = date
+        self.time = time
         self.explanation = explanation
         self.event_id = None
         self.owner_username = None
@@ -20,7 +21,8 @@ class Event():
 
     def initialization(self):
         with ConnectionPool() as cursor:
-            cursor.execute('SELECT event_id FROM event_table WHERE event_name = %s AND owner = %s AND day = %s AND month = %s AND year = %s', (self.name, self.owner, self.day, self.month, self.year))
+            cursor.execute('SELECT event_id FROM event_table WHERE event_name = %s AND owner = %s AND date = %s AND time = %s',
+                            (self.name, self.owner, self.date, self.time))
             result = cursor.fetchone()
             self.event_id = result[0]
             if self.group_id is not None:
@@ -50,10 +52,9 @@ class Event():
             self.name = result[2]
             self.place = result[3]
             self.owner = result[4]
-            self.day = result[5]
-            self.month = result[6]
-            self.year = result[7]
-            self.explanation = result[8]
+            self.date = result[5]
+            self.time = result[6]
+            self.explanation = result[7]
             self.event_id = result[0]
             self.initialization()
             self.find_participants()
@@ -62,16 +63,24 @@ class Event():
 
     def __repr__(self):
         return "<User {}>".format(self.name)
-        
+
     def save_to_db(self):
         with ConnectionPool() as cursor:
-            cursor.execute('INSERT INTO event_table(event_name, place, owner, day,month,year,explanation, group_id ) VALUES(%s,%s,%s,%s,%s,%s,%s,%s);',(self.name, self.place , self.owner , self.day, self.month, self.year, self.explanation, self.group_id))
-
-            cursor.execute('SELECT event_id FROM event_table WHERE event_name = %s AND owner = %s AND day = %s AND month = %s AND year = %s', (self.name, self.owner, self.day, self.month, self.year))
+            cursor.execute('INSERT INTO event_table(event_name, place, owner, date, time, explanation, group_id ) VALUES(%s,%s,%s,%s,%s,%s,%s)'
+                            ,(self.name, self.place , self.owner , self.date, self.time, self.explanation, self.group_id))
+            cursor.execute('SELECT event_id FROM event_table WHERE event_name = %s AND owner = %s AND date = %s and time = %s', (self.name, self.owner, self.date, self.time))
             result = cursor.fetchone()
             self.event_id = result[0]
             cursor.execute('INSERT INTO event_user(event_id,user_id) VALUES(%s,%s);' , (self.event_id , self.owner))
-        self.initialization()
+        if self.group_id is not None:
+            with ConnectionPool() as cursor:
+                cursor.execute('SELECT username FROM user_table WHERE userid = %s' , (self.owner,))
+                username = cursor.fetchone()[0]
+                group = Group(None,None,None,None,None,self.group_id,None)
+                group.read_with_id()
+                for participant in group.participants:
+                    new = New(None, username, participant, self.group_id, self.event_id, None, 'group' , 'created event in ', False, None,None )
+                    new.save_to_db()
 
     def add_participant(self,userid):
         with ConnectionPool() as cursor:
@@ -87,14 +96,26 @@ class Event():
             participant = cursor.fetchone()
         self.participant_arr.remove(participant[0])
 
-    def update_event(self,location, day, month, year, explanation):
+    def update_event(self,location, date, time, explanation):
         self.place = location
-        self.day = day
-        self.month = month
-        self.year = year
+        self.date = date
+        self.time = time
         self.explanation = explanation
         with ConnectionPool() as cursor:
-            cursor.execute('UPDATE event_table SET place = %s , day = %s, month = %s, year = %s, explanation = %s WHERE event_id = %s' ,(location, day, month, year, explanation, self.event_id))
+            cursor.execute('UPDATE event_table SET place = %s , date = %s, time = %s, explanation = %s WHERE event_id = %s' ,(location, date, time,explanation, self.event_id))
+            cursor.execute('SELECT username FROM user_table WHERE userid = %s' , (self.owner,))
+            username = cursor.fetchone()[0]
+            if self.group_id is not None:
+                group = Group(None,None,None,None,None,self.group_id,None)
+                group.read_with_id()
+                for participant in group.participants:
+                    new = New(None, username, participant, self.group_id, self.event_id, None, 'group' , 'updated event in', False, None,None )
+                    new.save_to_db()
+            else:
+                for participant in self.participant_arr:
+                    new = New(None, username, participant, self.group_id, self.event_id, None, 'event' , 'updated', False,None,None )
+                    new.save_to_db()
+
 
 class Events():
     def __init__(self):
@@ -105,12 +126,19 @@ class Events():
         year = currentDT.year
         month = currentDT.month
         day = currentDT.day
-        total = 10000*year + 100*month + day
+        if month < 10 and day < 10:
+            total = str(year) + '-0' + str(month) + '-0' + str(day)
+        elif month < 10 and day > 10:
+            total = str(year) + '-0' + str(month) + '-' + str(day)
+        if month > 10 and day < 10:
+            total = str(year) + '-' + str(month) + '-0' + str(day)
+        else:
+            total = str(year) + '-' + str(month) + '-' + str(day)
         with ConnectionPool() as cursor:
-            cursor.execute('SELECT * FROM event_table WHERE (10000*year + 100*month + day) >= (%s) ORDER BY (10000*year + 100*month + day) LIMIT 10', (total,))
+            cursor.execute('SELECT * FROM event_table WHERE group_id is null AND (date) >= (%s) ORDER BY (date) LIMIT 10', (total,))
             result = cursor.fetchall()
         for element in result:
-            event = Event(element[2], element[3], element[4], element[5], element[6], element[7], element[8], element[1])
+            event = Event(element[2], element[3], element[4], element[5], element[6], element[7], element[1])
             event.initialization()
             self.arr.append(event)
 
@@ -119,12 +147,19 @@ class Events():
         year = currentDT.year
         month = currentDT.month
         day = currentDT.day
-        total = 10000*year + 100*month + day
+        if month < 10 and day < 10:
+            total = str(year) + '-0' + str(month) + '-0' + str(day)
+        elif month < 10 and day > 10:
+            total = str(year) + '-0' + str(month) + '-' + str(day)
+        if month > 10 and day < 10:
+            total = str(year) + '-' + str(month) + '-0' + str(day)
+        else:
+            total = str(year) + '-' + str(month) + '-' + str(day)
         with ConnectionPool() as cursor:
-            cursor.execute('SELECT * FROM event_table WHERE owner = %s AND (10000*year + 100*month + day) >= (%s) ORDER BY (10000*year + 100*month + day)' , (id,total))
+            cursor.execute('SELECT * FROM event_table WHERE owner = %s AND (date) >= (%s) ORDER BY (date , time)' , (id,total))
             events = cursor.fetchall()
         for event in events:
-            event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[8], event[1])
+            event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
             event.initialization()
             self.arr.append(event)
 
@@ -133,11 +168,86 @@ class Events():
         year = currentDT.year
         month = currentDT.month
         day = currentDT.day
-        total = 10000*year + 100*month + day
+        if month < 10 and day < 10:
+            total = str(year) + '-0' + str(month) + '-0' + str(day)
+        elif month < 10 and day > 10:
+            total = str(year) + '-0' + str(month) + '-' + str(day)
+        if month > 10 and day < 10:
+            total = str(year) + '-' + str(month) + '-0' + str(day)
+        else:
+            total = str(year) + '-' + str(month) + '-' + str(day)
         with ConnectionPool() as cursor:
-            cursor.execute('SELECT * FROM event_table WHERE event_id IN(SELECT event_id FROM event_user WHERE user_id = %s) AND (10000*year + 100*month + day) >= (%s) ORDER BY (10000*year + 100*month + day)' , (id,total))
+            cursor.execute('SELECT * FROM event_table WHERE event_id IN(SELECT event_id FROM event_user WHERE user_id = %s) AND (date) >= (%s) ORDER BY (date,time)' , (id,total))
             events = cursor.fetchall()
         for event in events:
-            event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[8], event[1])
+            event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
+            event.initialization()
+            self.arr.append(event)
+
+    def group_events(self,userid,groupid):
+        currentDT = datetime.datetime.now()
+        year = currentDT.year
+        month = currentDT.month
+        day = currentDT.day
+        if month < 10 and day < 10:
+            total = str(year) + '-0' + str(month) + '-0' + str(day)
+        elif month < 10 and day > 10:
+            total = str(year) + '-0' + str(month) + '-' + str(day)
+        if month > 10 and day < 10:
+            total = str(year) + '-' + str(month) + '-0' + str(day)
+        else:
+            total = str(year) + '-' + str(month) + '-' + str(day)
+        with ConnectionPool() as cursor:
+            cursor.execute('SELECT * FROM event_table WHERE event_id IN(SELECT event_id FROM event_user WHERE user_id = %s) AND group_id=%s AND (date) >= (%s) ORDER BY (date,time)' , (userid, groupid, total))
+            events = cursor.fetchall()
+        for event in events:
+            event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
+            event.initialization()
+            self.arr.append(event)
+
+    def filtered_events(self, option, input):
+        input = "%" + input + "%"
+        currentDT = datetime.datetime.now()
+        year = currentDT.year
+        month = currentDT.month
+        day = currentDT.day
+        if month < 10 and day < 10:
+            total = str(year) + '-0' + str(month) + '-0' + str(day)
+        elif month < 10 and day > 10:
+            total = str(year) + '-0' + str(month) + '-' + str(day)
+        if month > 10 and day < 10:
+            total = str(year) + '-' + str(month) + '-0' + str(day)
+        else:
+            total = str(year) + '-' + str(month) + '-' + str(day)
+
+        if option == "Owner":
+            with ConnectionPool() as cursor:
+                cursor.execute(
+                    'SELECT * FROM event_table WHERE owner IN (SELECT userid FROM user_table WHERE LOWER (username) LIKE LOWER (%s)) '
+                    'AND group_id IS NULL AND (date) >= (%s) ORDER BY (date,time)',(input, total ))
+                events = cursor.fetchall()
+
+        else:
+            if option == "Name":
+                with ConnectionPool() as cursor:
+                    cursor.execute(
+                        'SELECT * FROM event_table WHERE LOWER (event_name) LIKE LOWER (%s) AND group_id IS NULL AND (date) >= (%s) '
+                        'ORDER BY (date,time)',(input, total))
+                    events = cursor.fetchall()
+            elif option == "Location":
+                with ConnectionPool() as cursor:
+                    cursor.execute(
+                        'SELECT * FROM event_table WHERE LOWER (place) LIKE LOWER (%s) AND group_id  IS NULL AND (date) >= (%s) '
+                        'ORDER BY (date,time)',(input, total))
+                    events = cursor.fetchall()
+            elif option == "Date":
+                with ConnectionPool() as cursor:
+                    cursor.execute(
+                         'SELECT * FROM event_table WHERE LOWER (date) LIKE LOWER (%s) AND group_id IS NULL AND (date) >= (%s) '
+                         'ORDER BY (date,time)',(input, total))
+                    events = cursor.fetchall()
+
+        for event in events:
+            event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
             event.initialization()
             self.arr.append(event)

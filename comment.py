@@ -1,6 +1,8 @@
 import psycopg2
 from dbconn import ConnectionPool
 import datetime
+from news import New
+from event import Event
 
 class Comment():
     def __init__(self, comment_id, owner, comment, subject, event_id, is_edited, send_notification ):
@@ -18,6 +20,13 @@ class Comment():
         with ConnectionPool() as cursor:
             cursor.execute('INSERT INTO comment_table(owner,time,comment,subject,event_id,is_edited,send_notification) VALUES(%s,%s,%s,%s,%s,%s,%s)',
              (self.owner, self.time, self.comment, self.subject, self.event_id, self.is_edited, self.send_notification))
+        if self.send_notification:
+            event =  Event(None,None,None,None,None,None,None)
+            event.read_with_id(self.event_id)
+            for participant in event.participant_arr:
+                new = New(None, self.owner, participant, event.group_id, self.event_id, None, 'event' , 'commented', False, None , None)
+                new.save_to_db()
+
 
     def delete_comment(self):
         with ConnectionPool() as cursor:
@@ -30,6 +39,13 @@ class Comment():
         self.time = datetime.datetime.now()
         with ConnectionPool() as cursor:
             cursor.execute('UPDATE comment_table SET comment = %s, subject = %s, send_notification = %s, is_edited = %s, time = %s' , (self.comment, self.subject, self.send_notification, True, self.time))
+
+        if self.send_notification:
+            event =  Event(None,None,None,None,None,None,None)
+            event.read_with_id(self.event_id)
+            for participant in event.participant_arr:
+                new = New(None, self.owner, participant, event.group_id, self.event_id, None, 'event' , 'updated the comment', False, None )
+                new.save_to_db()
 
     def get_eventid(self):
         with ConnectionPool() as cursor:

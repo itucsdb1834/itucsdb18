@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, RadioField, IntegerField, TextField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, RadioField, IntegerField, TextField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
+import datetime
+from datetime import date
 
 class RegistrationForm(FlaskForm):
     #Validators are used to give conditions for the username , password etc.
@@ -19,21 +21,14 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Log In")
 
 class EventForm(FlaskForm):
+    time = datetime.datetime.now()
+    hour = time.hour
+    minute = time.minute
+    mytime = str(hour)+'.'+str(minute)
     name = StringField("Name" , validators=  [DataRequired()])
     place = StringField("Place" , validators=  [DataRequired()])
-    day = IntegerField("Day" , validators=  [DataRequired()])
-    month = IntegerField("Month" , validators=  [DataRequired()]) #date field olarak degistir
-    year = IntegerField("Year" , validators=  [DataRequired()])
-    explanation = StringField("Explanation" , validators=  [DataRequired()])
-    submit = SubmitField("Create")
-
-
-class TravelForm(FlaskForm):
-    name = StringField("Name" , validators=  [DataRequired()])
-    country = StringField("Country" , validators=  [DataRequired()])
-    city = StringField("City" , validators=  [DataRequired()])
-    owner = StringField("Owner (input username)" , validators=  [DataRequired()])
-    time_interval = StringField("Time Interval" , validators=  [DataRequired()]) #date field olarak degistir
+    date = StringField("Date of Event",  default = date.today(),validators=[DataRequired()] )
+    time = StringField('Event Time', default = mytime ,validators=[DataRequired()] )
     explanation = StringField("Explanation" , validators=  [DataRequired()])
     submit = SubmitField("Create")
 
@@ -54,6 +49,7 @@ class GroupForm(FlaskForm):
     isprivate = RadioField('Do you want to approve new participants before they join group?', choices=[('Y', 'Private'), ('N', 'Public')] , validators = [DataRequired()])
     description = StringField("Description")
     give_permission = RadioField('Can other participants alter group information?', choices=[('Y', 'Yes'), ('N', 'No')] , validators = [DataRequired()])
+    max_number = IntegerField("Maximum Number of Participants" ,validators=[DataRequired()] )
     submit = SubmitField("Create Group")
 
 
@@ -73,9 +69,8 @@ class LeaveEventForm(FlaskForm):
 
 class ChangeEventForm(FlaskForm):
     location = StringField("Location", validators=[DataRequired()])
-    day = IntegerField("Day" , validators=  [DataRequired()])
-    month = IntegerField("Month" , validators=  [DataRequired()])
-    year = IntegerField("Year" , validators=  [DataRequired()])
+    date = StringField("Date of Event",validators=[DataRequired()] )
+    time = StringField('Event Time' ,validators=[DataRequired()] )
     explanation = StringField("Explanation", validators=[DataRequired()])
     submit = SubmitField("Update Event")
 
@@ -95,11 +90,15 @@ class AddEventForm(FlaskForm):
 class ShowGroupEvents(FlaskForm):
     submit5 = SubmitField("View Group Events")
 
+class RequestForm(FlaskForm):
+    submit = SubmitField("Create Request")
+
 class UpdateGroupInfoForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
     isprivate = RadioField('Do you want to approve new participants before they join group?', choices=[('Y', 'Private'), ('N', 'Public')] , validators = [DataRequired()])
-    description = StringField("Description")
+    description = StringField("Description", validators=[DataRequired()])
     give_permission = RadioField('Can other participants alter group information?', choices=[('Y', 'Yes'), ('N', 'No')] , validators = [DataRequired()])
+    max_number = IntegerField("Maximum Number of Participants" ,validators=[DataRequired()])
     submit = SubmitField("Update Group")
 
 class AddComment(FlaskForm):
@@ -113,3 +112,14 @@ class UpdateComment(FlaskForm):
     comment = TextField("Comment", validators=[DataRequired()])
     send_notification = BooleanField("Send Notification", default = False )
     submit = SubmitField("Update Comment")
+
+class CreateRequestForm(FlaskForm):
+    name = StringField("Name", validators=[DataRequired()])
+    min_people = IntegerField("Minimum Number of People Required to Turn it into an Event" , validators=  [DataRequired()])
+    explanation = StringField("Explanation", validators=[DataRequired()])
+    submit = SubmitField("Create Request")
+
+class SearchEventForm(FlaskForm):
+    event_input = StringField( validators=[DataRequired()])
+    search_with = SelectField(choices=[('aim', 'AIM'), ('msn', 'MSN')])
+    search_event = SubmitField("Search")
