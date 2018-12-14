@@ -79,7 +79,7 @@ class Event():
                 group = Group(None,None,None,None,None,self.group_id,None)
                 group.read_with_id()
                 for participant in group.participants:
-                    new = New(None, username, participant, self.group_id, self.event_id, None, 'group' , 'created event in ', False, None,None )
+                    new = New(None, username, participant, self.group_id, self.event_id, None, 'group' , 'created event in', False, None,None )
                     new.save_to_db()
 
     def add_participant(self,userid):
