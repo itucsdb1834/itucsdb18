@@ -53,6 +53,7 @@ INIT_STATEMENTS = [
 	                                       "date varchar(255) NOT NULL, "
 	                                       "time varchar(255) NOT NULL, "
 	                                       "explanation varchar(255) , "
+					       "primary key(event_id),"
     	                                   "unique(event_name,owner,date,time), "
 	                                       "foreign key(owner) "
 		                                         "references user_table(userid) "
