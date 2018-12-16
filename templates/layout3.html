@@ -115,6 +115,12 @@
                                       </div>
                                     </form>
                                     <form method = "POST" action = "">
+                                      {{ create_request.hidden_tag() }}
+                                      <div class = "form-group">
+                                          {{ create_request.submit(class = "btn btn_outline_info")}}
+                                      </div>
+                                    </form>
+                                    <form method = "POST" action = "">
                                       {{ updateform.hidden_tag() }}
                                       <div class = "form-group">
                                           {{ updateform.submit4(class = "btn btn_outline_info")}}
@@ -131,6 +137,12 @@
                                       {{ showevents.hidden_tag() }}
                                       <div class = "form-group">
                                           {{ showevents.submit5(class = "btn btn_outline_info")}}
+                                      </div>
+                                    </form>
+                                    <form method = "POST" action = "">
+                                      {{ create_request.hidden_tag() }}
+                                      <div class = "form-group">
+                                          {{ create_request.submit(class = "btn btn_outline_info")}}
                                       </div>
                                     </form>
                                   {%endif%}
