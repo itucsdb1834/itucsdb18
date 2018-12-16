@@ -76,4 +76,5 @@ class Requests():
             requests = cursor.fetchall()
         for request in requests:
             newrequest = Request(request[0], request[3], request[2], request[4], request[6], request[7], request[1])
+            newrequest.read_with_id()
             self.arr.append(newrequest)
