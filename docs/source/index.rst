@@ -24,8 +24,8 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-   :Cagla
-   :Idil
+   Cagla
+   Idil
   
 
 
