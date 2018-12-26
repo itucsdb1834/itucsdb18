@@ -7,14 +7,28 @@ Welcome to ITUCSDB1834's documentation!
 
 :Team: RapidEvent
 
-:By: Çağla Kaya & İdil Uğurnal
+:Members:
+   
+   * Idil Ugurnal          150150017
+   * Cagla Kaya            150150117
+   
+  
+  
+   
+With TravelMate you are able to find events or trips you wish to join 
+You can be accompanied by people who are just like you
+You can create groups to join events with your special group.
 
+Contents:
 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+  
 
 
-   User/index
-   Developer/index
+   user/index
+   developer/index
+   
+
+
