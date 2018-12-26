@@ -16,7 +16,7 @@ Database Table Distribution
    * event_table
    * group_user
 
-:Muhammed Raşit EROL:
+:Cagla Kaya:
 
    * group_table
    * comment_table
