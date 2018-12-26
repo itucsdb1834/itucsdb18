@@ -15,6 +15,8 @@ Database Table Distribution
    * user_table
    * event_table
    * group_user
+   
+   
 
 :Cagla Kaya:
 
@@ -26,12 +28,11 @@ Database Table Distribution
 
 Developer
 
-**include the E/R diagram(s)**
 
 Code
 ----
 
-There are two types of database class definitions that are listed below. ::
+Profile DB Init ::
 
    .. code-block:: python
 
