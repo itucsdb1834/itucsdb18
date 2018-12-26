@@ -140,7 +140,7 @@ Profile Class
                    number = cursor.fetchone()[0]
 
 
-Profile Class
+MyProfile Class
 -------------
 
  This class is implemented mainly to demonstrate user profile information on the website in several places and situations.
