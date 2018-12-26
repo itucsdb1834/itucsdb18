@@ -36,6 +36,7 @@ Create Event
 View Update and Delete Event
 -------------
 Update and Delete operations can be done on the menu bar above the event.
+
 .. figure:: pics/owned_events.png
    :scale: 50 %
    :alt: View Update and Delete Events
@@ -44,6 +45,7 @@ Update and Delete operations can be done on the menu bar above the event.
 Search For Events
 -----------------
 On the navigation side by you can search events with the properties you choose from the drop-down menu.
+
 .. figure:: pics/search_event.png
    :scale: 50 %
    :alt: Search Event
