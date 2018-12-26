@@ -1,22 +1,19 @@
-Welcome to itucsdbNN's documentation!
+Welcome to itucsdb1834's documentation!
 =====================================
 
-:Team: Team Name
+:Team: TravelMate
 
 :Members:
 
-   * Member 1
-   * Member 2
-   * Member 3
-   * Member 4
-   * Member 5
+   * Cagla Kaya
+   * Idil Ugurnal
 
 **project description goes here (a few paragraphs)**
 
 Contents:
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    user/index
    developer/index
