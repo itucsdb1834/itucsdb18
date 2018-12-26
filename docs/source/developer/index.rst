@@ -31,7 +31,7 @@ Code
 
 **Below you can see the complete diagram of our Database Tables and their relations. **
 
-.. figure:: pics/database_tables.png
+.. figure:: pics/database_tables.jpg
    :scale: 50 %
    :alt: Database Relation
 
