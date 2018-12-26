@@ -5,7 +5,7 @@ Parts Implemented by Idil
 User Class
 -----------
 
-** In this class, we implement insertion of a user to the user_table, update operation of the values of a user in the table, deletion of the user. **
+ In this class, we implement insertion of a user to the user_table, update operation of the values of a user in the table, deletion of the user.
 
    .. code-block:: python
 
@@ -100,7 +100,7 @@ User Class
 Profile Class
 -------------
 
-** This class is implemented to get, alter and maintain user profile information. **
+ This class is implemented to get, alter and maintain user profile information.
 
    .. code-block:: python
 
@@ -143,7 +143,7 @@ Profile Class
 Profile Class
 -------------
 
-** This class is implemented mainly to demonstrate user profile information on the website in several places and situations. **
+ This class is implemented mainly to demonstrate user profile information on the website in several places and situations.
 
     .. code-block:: python
 
@@ -175,7 +175,7 @@ Profile Class
 New Class
 ---------
 
-** This class is implemented to create notifications in news_table, alter their seen information and if necessary delete them. **
+ This class is implemented to create notifications in news_table, alter their seen information and if necessary delete them.
 
     .. code-block:: python
 
@@ -250,7 +250,7 @@ New Class
 News Class
 ---------
 
-** This class is implemented in order to get the notifications from news_table and print them on each users notification page. **
+ This class is implemented in order to get the notifications from news_table and print them on each users notification page. 
 
     .. code-block:: python
 
@@ -270,8 +270,8 @@ News Class
 Event Class
 -----------
 
-** This class is implemented to create events, update them and delete them if desired. **
-**It also manages the addition and deletion of participants in each event.  **
+ This class is implemented to create events, update them and delete them if desired.
+It also manages the addition and deletion of participants in each event.
 
     .. code-block:: python
 
@@ -391,7 +391,7 @@ Events Class
 -------------
 
  This class is implemented to demonstrate several events in designated pages.
- My events, owned events and group events view functionality is done through this class. 
+ My events, owned events and group events view functionality is done through this class.
 
     .. code-block:: python
 
