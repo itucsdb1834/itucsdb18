@@ -26,12 +26,10 @@ Database Table Distribution
 
 Developer
 
-**include the E/R diagram(s)**
-
 Code
 ----
 
-There are two types of database class definitions that are listed below. ::
+Profile DB initialization:
 
    .. code-block:: python
 
