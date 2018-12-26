@@ -531,7 +531,7 @@ Events Class
                     self.arr.append(event)
 
 Database Table Diagrams
-=========================
+------------------------
 
 User Table
 -----------
