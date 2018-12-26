@@ -7,7 +7,7 @@ Create Account
 You can register to our website by clicking register on the navigation bar.
 
   .. figure:: pics/register.png
-   :scale: 50 %
+   :scale: 25 %
    :alt: Create Account 
 
 
