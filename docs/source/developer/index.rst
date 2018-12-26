@@ -4,7 +4,7 @@ Developer Guide
 Database Design
 ---------------
 
-**We have 9 tables in total. Among these tables, 6 have 5 non-key elements and 3 are intermediary tables. You can see the explanation of the tables and the distribution below.**
+We have 9 tables in total. Among these tables, 6 have 5 non-key elements and 3 are intermediary tables. You can see the explanation of the tables and the distribution below.
 
 Database Distribution
 ---------------------
@@ -29,13 +29,13 @@ Database Distribution
 Code
 ----
 
-**Below you can see the complete diagram of our Database Tables and their relations. **
+Below you can see the complete diagram of our Database Tables and their relations. 
 
 .. figure:: pics/database_tables.jpg
    :scale: 50 %
    :alt: Database Relation
 
-**Each members work is demonstrated on their own page. **
+Each members work is demonstrated on their own page. 
 
 .. toctree::
 
