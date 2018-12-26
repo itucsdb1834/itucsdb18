@@ -1,79 +1,31 @@
- Guide
+Developer Guide
 ===============
 
 Database Design
 ---------------
 
-We have 9 tables in this Web Project and you can see the distribution below.
+**explain the database design of your project**
 
-Database Table Distribution
-^^^^^^^^^^^^^^^^^^^
-
-:Idil Ugurnal:
-
-   * news_table
-   * user_table
-   * event_table
-   * group_user
-
-:Cagla Kaya:
-
-   * group_table
-   * comment_table
-   * request_table
-   * upvote_table
-   * event_user
-
-Developer
+**include the E/R diagram(s)**
 
 Code
 ----
 
-Profile DB initialization:
+**explain the technical structure of your code**
+
+**to include a code listing, use the following example**::
 
    .. code-block:: python
 
-      class Profile(object):
-    def __init__(self, username):
-        self.username = username
-        self._profileID =  None
-        self.name =  None
-        self.surname =  None
-        self.age =  None
-        self.gender =  None
-        self.country =  None
-        self.city = None
-        self.hobbies =  None
-        self.description =  None
-        self.email =  None
-        self.unread_messages = None
-        self.get_unread_message_no()
+      class Foo:
 
-
-
-::
-
-   .. code-block:: python
-
-      class Profile(object):
-    def __init__(self, username):
-        self.username = username
-        self._profileID =  None
-        self.name =  None
-        self.surname =  None
-        self.age =  None
-        self.gender =  None
-        self.country =  None
-        self.city = None
-        self.hobbies =  None
-        self.description =  None
-        self.email =  None
-        self.unread_messages = None
-        self.get_unread_message_no()
-
-
+         def __init__(self, x):
+            self.x = x
 
 .. toctree::
 
-   Idil
-   Cagla
+   member1
+   member2
+   member3
+   member4
+   member5
