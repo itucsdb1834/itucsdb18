@@ -390,145 +390,145 @@ Event Class
 Events Class
 -------------
 
-** This class is implemented to demonstrate several events in designated pages. **
-** My events, owned events and group events view functionality is done through this class. **
+ This class is implemented to demonstrate several events in designated pages.
+ My events, owned events and group events view functionality is done through this class. 
 
     .. code-block:: python
 
-    class Events():
-        def __init__(self):
-            self.arr = []
+        class Events():
+            def __init__(self):
+                self.arr = []
 
-        def select_top_ten(self):
-            currentDT = datetime.datetime.now()
-            year = currentDT.year
-            month = currentDT.month
-            day = currentDT.day
-            if month < 10 and day < 10:
-                total = str(year) + '-0' + str(month) + '-0' + str(day)
-            elif month < 10 and day > 10:
-                total = str(year) + '-0' + str(month) + '-' + str(day)
-            if month > 10 and day < 10:
-                total = str(year) + '-' + str(month) + '-0' + str(day)
-            else:
-                total = str(year) + '-' + str(month) + '-' + str(day)
-            with ConnectionPool() as cursor:
-                cursor.execute('SELECT * FROM event_table WHERE group_id is null AND (date) >= (%s) ORDER BY (date) LIMIT 10', (total,))
-                result = cursor.fetchall()
-            for element in result:
-                event = Event(element[2], element[3], element[4], element[5], element[6], element[7], element[1])
-                event.initialization()
-                self.arr.append(event)
-
-        def owned_events(self,id):
-            currentDT = datetime.datetime.now()
-            year = currentDT.year
-            month = currentDT.month
-            day = currentDT.day
-            if month < 10 and day < 10:
-                total = str(year) + '-0' + str(month) + '-0' + str(day)
-            elif month < 10 and day > 10:
-                total = str(year) + '-0' + str(month) + '-' + str(day)
-            if month > 10 and day < 10:
-                total = str(year) + '-' + str(month) + '-0' + str(day)
-            else:
-                total = str(year) + '-' + str(month) + '-' + str(day)
-            with ConnectionPool() as cursor:
-                cursor.execute('SELECT * FROM event_table WHERE owner = %s AND (date) >= (%s) ORDER BY (date , time)' , (id,total))
-                events = cursor.fetchall()
-            for event in events:
-                event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
-                event.initialization()
-                self.arr.append(event)
-
-        def my_events(self,id):
-            currentDT = datetime.datetime.now()
-            year = currentDT.year
-            month = currentDT.month
-            day = currentDT.day
-            if month < 10 and day < 10:
-                total = str(year) + '-0' + str(month) + '-0' + str(day)
-            elif month < 10 and day > 10:
-                total = str(year) + '-0' + str(month) + '-' + str(day)
-            if month > 10 and day < 10:
-                total = str(year) + '-' + str(month) + '-0' + str(day)
-            else:
-                total = str(year) + '-' + str(month) + '-' + str(day)
-            with ConnectionPool() as cursor:
-                cursor.execute('SELECT * FROM event_table WHERE event_id IN(SELECT event_id FROM event_user WHERE user_id = %s) AND (date) >= (%s) ORDER BY (date,time)' , (id,total))
-                events = cursor.fetchall()
-            for event in events:
-                event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
-                event.initialization()
-                self.arr.append(event)
-
-        def group_events(self,userid,groupid):
-            currentDT = datetime.datetime.now()
-            year = currentDT.year
-            month = currentDT.month
-            day = currentDT.day
-            if month < 10 and day < 10:
-                total = str(year) + '-0' + str(month) + '-0' + str(day)
-            elif month < 10 and day > 10:
-                total = str(year) + '-0' + str(month) + '-' + str(day)
-            if month > 10 and day < 10:
-                total = str(year) + '-' + str(month) + '-0' + str(day)
-            else:
-                total = str(year) + '-' + str(month) + '-' + str(day)
-            with ConnectionPool() as cursor:
-                cursor.execute('SELECT * FROM event_table WHERE group_id = %s AND date >= %s ORDER BY (date,time)' , ( groupid, total))
-                events = cursor.fetchall()
-            for event in events:
-                event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
-                event.initialization()
-                self.arr.append(event)
-
-        def filtered_events(self, option, input):
-            input = "%" + input + "%"
-            currentDT = datetime.datetime.now()
-            year = currentDT.year
-            month = currentDT.month
-            day = currentDT.day
-            if month < 10 and day < 10:
-                total = str(year) + '-0' + str(month) + '-0' + str(day)
-            elif month < 10 and day > 10:
-                total = str(year) + '-0' + str(month) + '-' + str(day)
-            if month > 10 and day < 10:
-                total = str(year) + '-' + str(month) + '-0' + str(day)
-            else:
-                total = str(year) + '-' + str(month) + '-' + str(day)
-
-            if option == "Owner":
+            def select_top_ten(self):
+                currentDT = datetime.datetime.now()
+                year = currentDT.year
+                month = currentDT.month
+                day = currentDT.day
+                if month < 10 and day < 10:
+                    total = str(year) + '-0' + str(month) + '-0' + str(day)
+                elif month < 10 and day > 10:
+                    total = str(year) + '-0' + str(month) + '-' + str(day)
+                if month > 10 and day < 10:
+                    total = str(year) + '-' + str(month) + '-0' + str(day)
+                else:
+                    total = str(year) + '-' + str(month) + '-' + str(day)
                 with ConnectionPool() as cursor:
-                    cursor.execute(
-                        'SELECT * FROM event_table WHERE owner IN (SELECT userid FROM user_table WHERE LOWER (username) LIKE LOWER (%s)) '
-                        'AND group_id IS NULL AND (date) >= (%s) ORDER BY (date,time)',(input, total ))
+                    cursor.execute('SELECT * FROM event_table WHERE group_id is null AND (date) >= (%s) ORDER BY (date) LIMIT 10', (total,))
+                    result = cursor.fetchall()
+                for element in result:
+                    event = Event(element[2], element[3], element[4], element[5], element[6], element[7], element[1])
+                    event.initialization()
+                    self.arr.append(event)
+
+            def owned_events(self,id):
+                currentDT = datetime.datetime.now()
+                year = currentDT.year
+                month = currentDT.month
+                day = currentDT.day
+                if month < 10 and day < 10:
+                    total = str(year) + '-0' + str(month) + '-0' + str(day)
+                elif month < 10 and day > 10:
+                    total = str(year) + '-0' + str(month) + '-' + str(day)
+                if month > 10 and day < 10:
+                    total = str(year) + '-' + str(month) + '-0' + str(day)
+                else:
+                    total = str(year) + '-' + str(month) + '-' + str(day)
+                with ConnectionPool() as cursor:
+                    cursor.execute('SELECT * FROM event_table WHERE owner = %s AND (date) >= (%s) ORDER BY (date , time)' , (id,total))
                     events = cursor.fetchall()
+                for event in events:
+                    event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
+                    event.initialization()
+                    self.arr.append(event)
 
-            else:
-                if option == "Name":
+            def my_events(self,id):
+                currentDT = datetime.datetime.now()
+                year = currentDT.year
+                month = currentDT.month
+                day = currentDT.day
+                if month < 10 and day < 10:
+                    total = str(year) + '-0' + str(month) + '-0' + str(day)
+                elif month < 10 and day > 10:
+                    total = str(year) + '-0' + str(month) + '-' + str(day)
+                if month > 10 and day < 10:
+                    total = str(year) + '-' + str(month) + '-0' + str(day)
+                else:
+                    total = str(year) + '-' + str(month) + '-' + str(day)
+                with ConnectionPool() as cursor:
+                    cursor.execute('SELECT * FROM event_table WHERE event_id IN(SELECT event_id FROM event_user WHERE user_id = %s) AND (date) >= (%s) ORDER BY (date,time)' , (id,total))
+                    events = cursor.fetchall()
+                for event in events:
+                    event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
+                    event.initialization()
+                    self.arr.append(event)
+
+            def group_events(self,userid,groupid):
+                currentDT = datetime.datetime.now()
+                year = currentDT.year
+                month = currentDT.month
+                day = currentDT.day
+                if month < 10 and day < 10:
+                    total = str(year) + '-0' + str(month) + '-0' + str(day)
+                elif month < 10 and day > 10:
+                    total = str(year) + '-0' + str(month) + '-' + str(day)
+                if month > 10 and day < 10:
+                    total = str(year) + '-' + str(month) + '-0' + str(day)
+                else:
+                    total = str(year) + '-' + str(month) + '-' + str(day)
+                with ConnectionPool() as cursor:
+                    cursor.execute('SELECT * FROM event_table WHERE group_id = %s AND date >= %s ORDER BY (date,time)' , ( groupid, total))
+                    events = cursor.fetchall()
+                for event in events:
+                    event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
+                    event.initialization()
+                    self.arr.append(event)
+
+            def filtered_events(self, option, input):
+                input = "%" + input + "%"
+                currentDT = datetime.datetime.now()
+                year = currentDT.year
+                month = currentDT.month
+                day = currentDT.day
+                if month < 10 and day < 10:
+                    total = str(year) + '-0' + str(month) + '-0' + str(day)
+                elif month < 10 and day > 10:
+                    total = str(year) + '-0' + str(month) + '-' + str(day)
+                if month > 10 and day < 10:
+                    total = str(year) + '-' + str(month) + '-0' + str(day)
+                else:
+                    total = str(year) + '-' + str(month) + '-' + str(day)
+
+                if option == "Owner":
                     with ConnectionPool() as cursor:
                         cursor.execute(
-                            'SELECT * FROM event_table WHERE LOWER (event_name) LIKE LOWER (%s) AND group_id IS NULL AND (date) >= (%s) '
-                            'ORDER BY (date,time)',(input, total))
-                        events = cursor.fetchall()
-                elif option == "Location":
-                    with ConnectionPool() as cursor:
-                        cursor.execute(
-                            'SELECT * FROM event_table WHERE LOWER (place) LIKE LOWER (%s) AND group_id  IS NULL AND (date) >= (%s) '
-                            'ORDER BY (date,time)',(input, total))
-                        events = cursor.fetchall()
-                elif option == "Date":
-                    with ConnectionPool() as cursor:
-                        cursor.execute(
-                             'SELECT * FROM event_table WHERE LOWER (date) LIKE LOWER (%s) AND group_id IS NULL AND (date) >= (%s) '
-                             'ORDER BY (date,time)',(input, total))
+                            'SELECT * FROM event_table WHERE owner IN (SELECT userid FROM user_table WHERE LOWER (username) LIKE LOWER (%s)) '
+                            'AND group_id IS NULL AND (date) >= (%s) ORDER BY (date,time)',(input, total ))
                         events = cursor.fetchall()
 
-            for event in events:
-                event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
-                event.initialization()
-                self.arr.append(event)
+                else:
+                    if option == "Name":
+                        with ConnectionPool() as cursor:
+                            cursor.execute(
+                                'SELECT * FROM event_table WHERE LOWER (event_name) LIKE LOWER (%s) AND group_id IS NULL AND (date) >= (%s) '
+                                'ORDER BY (date,time)',(input, total))
+                            events = cursor.fetchall()
+                    elif option == "Location":
+                        with ConnectionPool() as cursor:
+                            cursor.execute(
+                                'SELECT * FROM event_table WHERE LOWER (place) LIKE LOWER (%s) AND group_id  IS NULL AND (date) >= (%s) '
+                                'ORDER BY (date,time)',(input, total))
+                            events = cursor.fetchall()
+                    elif option == "Date":
+                        with ConnectionPool() as cursor:
+                            cursor.execute(
+                                 'SELECT * FROM event_table WHERE LOWER (date) LIKE LOWER (%s) AND group_id IS NULL AND (date) >= (%s) '
+                                 'ORDER BY (date,time)',(input, total))
+                            events = cursor.fetchall()
+
+                for event in events:
+                    event = Event(event[2], event[3], event[4], event[5], event[6], event[7], event[1])
+                    event.initialization()
+                    self.arr.append(event)
 
 Database Table Diagrams
 =========================
