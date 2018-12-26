@@ -19,7 +19,7 @@ Python and Flask Libraries are used to develop this web application. Relational 
 
 
 .. figure:: cover_page.png
-   :scale: 50 %
+   :scale: 25 %
    :alt: TravelMate
    
    
