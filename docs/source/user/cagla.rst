@@ -81,8 +81,16 @@ If you are group owner or group owner gave the permission to alter group informa
 
 Create Request
 --------------
-You can create requests for new events to be organized for group and see how many people is willing to join.
+You can create requests for new events to be organized for group and see how many people is willing to join. (The owner of request can delete it later.)
 
   .. figure:: pics/create_request.PNG
    :scale: 70 %
    :alt: Create Request 
+
+Upvote Request
+--------------
+Members of group can upvote request, and downvote it if their mind is changed.
+
+  .. figure:: pics/vote.PNG
+   :scale: 70 %
+   :alt: Vote
