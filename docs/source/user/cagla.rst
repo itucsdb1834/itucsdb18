@@ -11,22 +11,23 @@ You can create groups to plan new events with the same people.
 
 Group Views
 --------------
-At the figure above, there are owned groups of an user:
+At the figure below, there are owned groups of an user:
 
  .. figure:: pics/owned_groups.PNG
    :scale: 70 %
    :alt: Owned Groups
    
-Group members will have more permissions for operations at group if owner of the group gives permission to the other members of group to alter group information. And only the owner of the group is allowed to delete people from group or delete group completely. 
-
 View For Owner
 ^^^^^^^^^^^^^^^^
+Group members will have more permissions for operations at group if owner of the group gives permission to the other members of group to alter group information. And only the owner of the group is allowed to delete people from group or delete group completely. 
+
+At the figure below owner of group added a new member to the group. (Since group is private only member of group can add  people and there is only owner in the group at the begining)
 
   .. figure:: pics/group_owner.PNG
    :scale: 70 %
    :alt: Group Owner
  
-At the figure above owner of group added a new member to the group. (Since group is private only member of group can add  people and there is only owner in the group at the begining)
+
 
 View For Authorized Member
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -38,7 +39,7 @@ Although members of the group are authorized they can not delete the particapant
 
 Search Group
 ^^^^^^^^^^^^^^
-A user can search for groups if group is public (is open to search and join). At the figure above, groups with a name that contains text 'training' is searched.
+A user can search for groups if group is public (is open to search and join). At the figure below, groups with a name that contains text 'training' is searched.
 
   .. figure:: pics/searched_groups.PNG
    :scale: 70 %
@@ -46,7 +47,7 @@ A user can search for groups if group is public (is open to search and join). At
 
 Join Group
 ^^^^^^^^^^^^^^
-If a user is not already member of the found group, can join the group.
+If a user is not already member of the found group and number of members is lower than maximum number, user can join the group.
 
   .. figure:: pics/join_group.PNG
    :scale: 70 %
@@ -59,3 +60,22 @@ Since the members of the joined group other than the owner are unauthorized,they
   .. figure:: pics/unauthorized_group_member.PNG
    :scale: 70 %
    :alt: Unauthorized Group Member
+
+Update Group
+--------------
+If you are group owner or group owner gave the permission to alter group information you can update the group.
+(When group is updated, a notification is sent to every member of group.)
+
+ .. figure:: pics/update_group.PNG
+   :scale: 70 %
+   :alt: Update Group
+   
+Group Events
+--------------
+If you are group owner or group owner gave the permission to alter group information you can create evnts for group.
+(When a new event is added, a notification is sent to every member of group.)
+
+ .. figure:: pics/group_events.PNG
+   :scale: 70 %
+   :alt: Group Events
+   
