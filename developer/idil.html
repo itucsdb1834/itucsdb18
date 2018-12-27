@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parts Implemented by Idil &mdash; ITUCSDB1834  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parts Implemented by Cagla" href="cagla.html" />
+    <link rel="prev" title="Developer Guide" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ITUCSDB1834
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#database-design">Database Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#database-distribution">Database Distribution</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#code">Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Parts Implemented by Idil</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user-class">User Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profile-class">Profile Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#myprofile-class">MyProfile Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-class">New Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#news-class">News Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#event-class">Event Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#events-class">Events Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-table-diagrams">Database Table Diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-table">User Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#news-table">News Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#event-table">Event Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#event-user-table">Event User Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#group-user-table">Group User Table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cagla.html">Parts Implemented by Cagla</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ITUCSDB1834</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Developer Guide</a> &raquo;</li>
+        
+      <li>Parts Implemented by Idil</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developer/idil.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parts-implemented-by-idil">
+<h1>Parts Implemented by Idil<a class="headerlink" href="#parts-implemented-by-idil" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="user-class">
+<h2>User Class<a class="headerlink" href="#user-class" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>In this class, we implement insertion of a user to the user_table, update operation of the values of a user in the table, deletion of the user.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">UserMixin</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span> <span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">username</span> <span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">surname</span> <span class="o">=</span> <span class="n">surname</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
+
+  <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="s2">&quot;&lt;User {}&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">save_to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+          <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT INTO user_table(first_name, surname, username, email, passwrd) VALUES(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">);&#39;</span>
+                         <span class="p">,(</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">surname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">))</span>
+  <span class="nd">@classmethod</span>
+  <span class="k">def</span> <span class="nf">get_with_email</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="n">mail</span><span class="p">):</span>
+      <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+          <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM user_table WHERE email = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">mail</span><span class="p">,))</span>
+          <span class="n">user_data</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+          <span class="k">if</span> <span class="n">user_data</span><span class="p">:</span>
+              <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="n">user_data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">username</span> <span class="o">=</span> <span class="n">user_data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">first_name</span> <span class="o">=</span> <span class="n">user_data</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">surname</span> <span class="o">=</span> <span class="n">user_data</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">email</span> <span class="o">=</span> <span class="n">user_data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="p">,</span> <span class="n">password</span><span class="o">=</span> <span class="n">user_data</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="k">return</span>
+
+  <span class="k">def</span> <span class="nf">check_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">passwrd</span><span class="p">):</span>
+      <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">==</span> <span class="n">passwrd</span><span class="p">:</span>
+          <span class="k">return</span> <span class="mi">1</span>
+      <span class="k">else</span><span class="p">:</span>
+          <span class="k">return</span> <span class="mi">0</span>
+
+  <span class="k">def</span> <span class="nf">get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+          <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT userid FROM user_table WHERE userid = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,))</span>
+          <span class="n">user</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+          <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+              <span class="k">return</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span>
+
+  <span class="k">def</span> <span class="nf">delete_account</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+          <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;DELETE FROM user_table WHERE userid = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,))</span>
+
+
+  <span class="k">def</span> <span class="nf">update_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pswrd</span><span class="p">):</span>
+      <span class="c1"># burada bir sikinti var duzelt</span>
+      <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+          <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;UPDATE user_table set passwrd = </span><span class="si">%s</span><span class="s1"> WHERE userid = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="n">pswrd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">pswrd</span>
+
+  <span class="k">def</span> <span class="nf">update_username</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">usern</span><span class="p">):</span>
+      <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+          <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;UPDATE user_table set username = </span><span class="si">%s</span><span class="s1"> WHERE userid = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="n">usern</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">usern</span>
+
+  <span class="k">def</span> <span class="nf">update_email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mail</span><span class="p">):</span>
+      <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+          <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;UPDATE user_table set email = </span><span class="si">%s</span><span class="s1"> WHERE userid = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="n">mail</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">mail</span>
+
+  <span class="k">def</span> <span class="nf">check_participant_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event_id</span><span class="p">):</span>
+      <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+          <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT COUNT(*) FROM event_user where user_id = </span><span class="si">%s</span><span class="s1"> AND event_id = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="p">,</span> <span class="n">event_id</span><span class="p">))</span>
+          <span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+      <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+  <span class="k">def</span> <span class="nf">check_owned</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+      <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+          <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT owner FROM event_table WHERE event_id = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="n">event</span><span class="p">,))</span>
+          <span class="n">owner</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+          <span class="k">if</span> <span class="n">owner</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+              <span class="k">return</span> <span class="bp">True</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="k">return</span> <span class="bp">False</span>
+
+  <span class="k">def</span> <span class="nf">remove_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_id</span><span class="p">):</span>
+      <span class="n">myevent</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">)</span>
+      <span class="n">myevent</span><span class="o">.</span><span class="n">read_with_id</span><span class="p">(</span><span class="n">event_id</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">participant</span> <span class="ow">in</span> <span class="n">myevent</span><span class="o">.</span><span class="n">participant_arr</span><span class="p">:</span>
+          <span class="n">new</span> <span class="o">=</span> <span class="n">New</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">participant</span><span class="p">,</span> <span class="n">myevent</span><span class="o">.</span><span class="n">group_id</span><span class="p">,</span> <span class="n">myevent</span><span class="o">.</span><span class="n">event_id</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;event&#39;</span> <span class="p">,</span> <span class="s1">&#39;deleted&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span> <span class="p">)</span>
+          <span class="n">new</span><span class="o">.</span><span class="n">save_to_db</span><span class="p">()</span>
+      <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+          <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;DELETE FROM event_table where event_id = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">event_id</span><span class="p">,))</span>
+          <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;UPDATE news_table SET link = </span><span class="si">%s</span><span class="s1"> WHERE event_id IS NULL AND link IS NOT NULL &#39;</span> <span class="p">,</span> <span class="p">(</span><span class="bp">None</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="profile-class">
+<h2>Profile Class<a class="headerlink" href="#profile-class" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>This class is implemented to get, alter and maintain user profile information.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Profile</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_profileID</span> <span class="o">=</span>  <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span>  <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">surname</span> <span class="o">=</span>  <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span>  <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gender</span> <span class="o">=</span>  <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span>  <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hobbies</span> <span class="o">=</span>  <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span>  <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span>  <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unread_messages</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_unread_message_no</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">read_from_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;select email, username, first_name, surname, age, gender, country, city, hobbies, description from user_table where username = </span><span class="si">%s</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,))</span>
+            <span class="n">profile_inf</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">profile_inf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">profile_inf</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">surname</span> <span class="o">=</span> <span class="n">profile_inf</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gender</span> <span class="o">=</span> <span class="n">profile_inf</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">profile_inf</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">profile_inf</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">profile_inf</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hobbies</span> <span class="o">=</span> <span class="n">profile_inf</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">profile_inf</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_unread_message_no</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT COUNT(*) FROM news_table WHERE receiver = </span><span class="si">%s</span><span class="s1"> AND seen = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="bp">False</span><span class="p">))</span>
+            <span class="n">number</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="myprofile-class">
+<h2>MyProfile Class<a class="headerlink" href="#myprofile-class" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>This class is implemented mainly to demonstrate user profile information on the website in several places and situations.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyProfile</span><span class="p">(</span><span class="n">Profile</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+        <span class="n">Profile</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">read_from_db</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">update_my_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">gender</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">hobbies</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gender</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">surname</span> <span class="o">=</span> <span class="n">surname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gender</span> <span class="o">=</span> <span class="n">gender</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">country</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hobbies</span> <span class="o">=</span> <span class="n">hobbies</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="c1">#self.check_empty()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__update_profile_at_db</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">__update_profile_at_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;UPDATE user_table set  email = </span><span class="si">%s</span><span class="s1">, first_name = </span><span class="si">%s</span><span class="s1">, surname = </span><span class="si">%s</span><span class="s1">, gender = </span><span class="si">%s</span><span class="s1">, age = </span><span class="si">%s</span><span class="s1"> , country = </span><span class="si">%s</span><span class="s1"> ,&#39;</span>
+                           <span class="s1">&#39;city = </span><span class="si">%s</span><span class="s1">, hobbies = </span><span class="si">%s</span><span class="s1">, description = </span><span class="si">%s</span><span class="s1"> WHERE username = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">surname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gender</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">country</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">city</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hobbies</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="new-class">
+<h2>New Class<a class="headerlink" href="#new-class" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>This class is implemented to create notifications in news_table, alter their seen information and if necessary delete them.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">New</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">news_id</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">group_id</span><span class="p">,</span> <span class="n">event_id</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">seen</span> <span class="p">,</span><span class="n">link</span><span class="p">,</span><span class="n">message</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">news_id</span> <span class="o">=</span> <span class="n">news_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sender</span> <span class="o">=</span> <span class="n">sender</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">receiver</span> <span class="o">=</span> <span class="n">receiver</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span> <span class="o">=</span> <span class="n">group_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_id</span> <span class="o">=</span> <span class="n">event_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seen</span> <span class="o">=</span> <span class="n">seen</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">link</span> <span class="o">=</span> <span class="n">link</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
+        <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">formulate_message</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">link</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">formulate_link</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">formulate_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;event&#39;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT event_name FROM event_table where event_id = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_id</span><span class="p">,))</span>
+                <span class="n">eventname</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; event &#39;</span><span class="o">+</span>  <span class="nb">str</span><span class="p">(</span><span class="n">eventname</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT group_name FROM group_table where group_id = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">,))</span>
+                <span class="n">groupname</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; group &#39;</span><span class="o">+</span>  <span class="nb">str</span><span class="p">(</span><span class="n">groupname</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">formulate_link</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;event&#39;</span><span class="p">):</span>
+            <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;deleted&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">link</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">elif</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;updated&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;commented&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;updated the comment&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;/event/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_id</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;deleted&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">link</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">elif</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;updated&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;created request in&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;joined&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;request_fulfilled&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span><span class="s1">&#39;deleted you from&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span><span class="s1">&#39;left&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;/group/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">)</span>
+            <span class="k">elif</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;created event in&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;updated event in&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;/groupevents/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">save_to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT INTO news_table(sender,receiver,group_id,event_id,time,type,action,seen,link,message) VALUES(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">)&#39;</span><span class="p">,</span>
+                            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiver</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">event_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">seen</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">link</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">))</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sender</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT news_id FROM news_table WHERE sender = </span><span class="si">%s</span><span class="s1"> AND time = </span><span class="si">%s</span><span class="s1"> AND receiver = </span><span class="si">%s</span><span class="s1">  AND type = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiver</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT news_id FROM news_table WHERE sender is null AND time = </span><span class="si">%s</span><span class="s1"> AND receiver = </span><span class="si">%s</span><span class="s1">  AND type = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiver</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">news_id</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">is_seen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;UPDATE news_table SET seen = </span><span class="si">%s</span><span class="s1"> WHERE news_id = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">news_id</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">delete_new</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;DELETE FROM news_table WHERE news_id = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">news_id</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="news-class">
+<h2>News Class<a class="headerlink" href="#news-class" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>This class is implemented in order to get the notifications from news_table and print them on each users notification page.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">News</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">news_arr</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">print_news</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM news_table WHERE receiver = </span><span class="si">%s</span><span class="s1"> ORDER BY time DESC&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="n">username</span><span class="p">,))</span>
+            <span class="n">news</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">new</span> <span class="ow">in</span> <span class="n">news</span><span class="p">:</span>
+            <span class="n">mynew</span> <span class="o">=</span> <span class="n">New</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">new</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">new</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">new</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">new</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span><span class="n">new</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">new</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">new</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="bp">True</span><span class="p">,</span> <span class="n">new</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span><span class="n">new</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
+            <span class="n">mynew</span><span class="o">.</span><span class="n">is_seen</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">news_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mynew</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="event-class">
+<h2>Event Class<a class="headerlink" href="#event-class" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>This class is implemented to create events, update them and delete them if desired.</div></blockquote>
+<p>It also manages the addition and deletion of participants in each event.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Event</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span> <span class="p">,</span> <span class="n">place</span><span class="p">,</span> <span class="n">owner</span> <span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">explanation</span><span class="p">,</span> <span class="n">group_id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span> <span class="o">=</span> <span class="n">group_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">group_name</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">place</span> <span class="o">=</span> <span class="n">place</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">explanation</span> <span class="o">=</span> <span class="n">explanation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_id</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner_username</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">participant_arr</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">no_of_participants</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">initialization</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT event_id FROM event_table WHERE event_name = </span><span class="si">%s</span><span class="s1"> AND owner = </span><span class="si">%s</span><span class="s1"> AND date = </span><span class="si">%s</span><span class="s1"> AND time = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">event_id</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT group_name FROM group_table WHERE group_id = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">,))</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">group_name</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT username FROM user_table WHERE userid = </span><span class="si">%s</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,))</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">owner_username</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+    <span class="k">def</span> <span class="nf">find_participants</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT username FROM user_table WHERE userid in(SELECT user_id FROM event_user WHERE event_id = </span><span class="si">%s</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_id</span><span class="p">,))</span>
+            <span class="n">participants</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">participant</span> <span class="ow">in</span> <span class="n">participants</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">participant_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">participant</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">no_of_participants</span> <span class="o">=</span> <span class="n">count</span>
+
+    <span class="k">def</span> <span class="nf">read_with_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">id</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM event_table WHERE event_id = </span><span class="si">%s</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">id</span><span class="p">,))</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">place</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">explanation</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">event_id</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">find_participants</span><span class="p">()</span>
+
+
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;User {}&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">save_to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT INTO event_table(event_name, place, owner, date, time, explanation, group_id ) VALUES(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">)&#39;</span>
+                            <span class="p">,(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">place</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">explanation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">))</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT event_id FROM event_table WHERE event_name = </span><span class="si">%s</span><span class="s1"> AND owner = </span><span class="si">%s</span><span class="s1"> AND date = </span><span class="si">%s</span><span class="s1"> and time = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">event_id</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT INTO event_user(event_id,user_id) VALUES(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">);&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_id</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT username FROM user_table WHERE userid = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,))</span>
+                <span class="n">username</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">group</span> <span class="o">=</span> <span class="n">Group</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">,</span><span class="bp">None</span><span class="p">)</span>
+                <span class="n">group</span><span class="o">.</span><span class="n">read_with_id</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">participant</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">participants</span><span class="p">:</span>
+                    <span class="n">new</span> <span class="o">=</span> <span class="n">New</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">participant</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">event_id</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span> <span class="p">,</span> <span class="s1">&#39;created event in&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span><span class="bp">None</span> <span class="p">)</span>
+                    <span class="n">new</span><span class="o">.</span><span class="n">save_to_db</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">add_participant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">userid</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT into event_user values(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="p">,</span>    <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_id</span><span class="p">,</span> <span class="n">userid</span><span class="p">))</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT username FROM user_table WHERE userid = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="n">userid</span><span class="p">,))</span>
+            <span class="n">participant</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">participant_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">participant</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">delete_participant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userid</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;DELETE FROM event_user WHERE user_id = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,(</span><span class="n">userid</span><span class="p">,))</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT username FROM user_table WHERE userid = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="n">userid</span><span class="p">,))</span>
+            <span class="n">participant</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">participant_arr</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">participant</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">update_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">location</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">explanation</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">place</span> <span class="o">=</span> <span class="n">location</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">explanation</span> <span class="o">=</span> <span class="n">explanation</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;UPDATE event_table SET place = </span><span class="si">%s</span><span class="s1"> , date = </span><span class="si">%s</span><span class="s1">, time = </span><span class="si">%s</span><span class="s1">, explanation = </span><span class="si">%s</span><span class="s1"> WHERE event_id = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,(</span><span class="n">location</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span><span class="n">explanation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">event_id</span><span class="p">))</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT username FROM user_table WHERE userid = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,))</span>
+            <span class="n">username</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">group</span> <span class="o">=</span> <span class="n">Group</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">,</span><span class="bp">None</span><span class="p">)</span>
+                <span class="n">group</span><span class="o">.</span><span class="n">read_with_id</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">participant</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">participants</span><span class="p">:</span>
+                    <span class="n">new</span> <span class="o">=</span> <span class="n">New</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">participant</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">event_id</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span> <span class="p">,</span> <span class="s1">&#39;updated event in&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span><span class="bp">None</span> <span class="p">)</span>
+                    <span class="n">new</span><span class="o">.</span><span class="n">save_to_db</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">participant</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">participant_arr</span><span class="p">:</span>
+                    <span class="n">new</span> <span class="o">=</span> <span class="n">New</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">participant</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">event_id</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;event&#39;</span> <span class="p">,</span> <span class="s1">&#39;updated&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span> <span class="p">)</span>
+                    <span class="n">new</span><span class="o">.</span><span class="n">save_to_db</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="events-class">
+<h2>Events Class<a class="headerlink" href="#events-class" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>This class is implemented to demonstrate several events in designated pages.
+My events, owned events and group events view functionality is done through this class.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Events</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arr</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">select_top_ten</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">currentDT</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">year</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">month</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">day</span>
+        <span class="k">if</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">month</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM event_table WHERE group_id is null AND (date) &gt;= (</span><span class="si">%s</span><span class="s1">) ORDER BY (date) LIMIT 10&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">total</span><span class="p">,))</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">element</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">element</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">element</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">element</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">element</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">initialization</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">owned_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">id</span><span class="p">):</span>
+        <span class="n">currentDT</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">year</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">month</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">day</span>
+        <span class="k">if</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">month</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM event_table WHERE owner = </span><span class="si">%s</span><span class="s1"> AND (date) &gt;= (</span><span class="si">%s</span><span class="s1">) ORDER BY (date , time)&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">total</span><span class="p">))</span>
+            <span class="n">events</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">initialization</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">my_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">id</span><span class="p">):</span>
+        <span class="n">currentDT</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">year</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">month</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">day</span>
+        <span class="k">if</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">month</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM event_table WHERE event_id IN(SELECT event_id FROM event_user WHERE user_id = </span><span class="si">%s</span><span class="s1">) AND (date) &gt;= (</span><span class="si">%s</span><span class="s1">) ORDER BY (date,time)&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">total</span><span class="p">))</span>
+            <span class="n">events</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">initialization</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">group_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">userid</span><span class="p">,</span><span class="n">groupid</span><span class="p">):</span>
+        <span class="n">currentDT</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">year</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">month</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">day</span>
+        <span class="k">if</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">month</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM event_table WHERE group_id = </span><span class="si">%s</span><span class="s1"> AND date &gt;= </span><span class="si">%s</span><span class="s1"> ORDER BY (date,time)&#39;</span> <span class="p">,</span> <span class="p">(</span> <span class="n">groupid</span><span class="p">,</span> <span class="n">total</span><span class="p">))</span>
+            <span class="n">events</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">initialization</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">filtered_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="nb">input</span> <span class="o">=</span> <span class="s2">&quot;%&quot;</span> <span class="o">+</span> <span class="nb">input</span> <span class="o">+</span> <span class="s2">&quot;%&quot;</span>
+        <span class="n">currentDT</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">year</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">month</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="n">currentDT</span><span class="o">.</span><span class="n">day</span>
+        <span class="k">if</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">month</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-0&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">&quot;Owner&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+                    <span class="s1">&#39;SELECT * FROM event_table WHERE owner IN (SELECT userid FROM user_table WHERE LOWER (username) LIKE LOWER (</span><span class="si">%s</span><span class="s1">)) &#39;</span>
+                    <span class="s1">&#39;AND group_id IS NULL AND (date) &gt;= (</span><span class="si">%s</span><span class="s1">) ORDER BY (date,time)&#39;</span><span class="p">,(</span><span class="nb">input</span><span class="p">,</span> <span class="n">total</span> <span class="p">))</span>
+                <span class="n">events</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">&quot;Name&quot;</span><span class="p">:</span>
+                <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+                        <span class="s1">&#39;SELECT * FROM event_table WHERE LOWER (event_name) LIKE LOWER (</span><span class="si">%s</span><span class="s1">) AND group_id IS NULL AND (date) &gt;= (</span><span class="si">%s</span><span class="s1">) &#39;</span>
+                        <span class="s1">&#39;ORDER BY (date,time)&#39;</span><span class="p">,(</span><span class="nb">input</span><span class="p">,</span> <span class="n">total</span><span class="p">))</span>
+                    <span class="n">events</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">&quot;Location&quot;</span><span class="p">:</span>
+                <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+                        <span class="s1">&#39;SELECT * FROM event_table WHERE LOWER (place) LIKE LOWER (</span><span class="si">%s</span><span class="s1">) AND group_id  IS NULL AND (date) &gt;= (</span><span class="si">%s</span><span class="s1">) &#39;</span>
+                        <span class="s1">&#39;ORDER BY (date,time)&#39;</span><span class="p">,(</span><span class="nb">input</span><span class="p">,</span> <span class="n">total</span><span class="p">))</span>
+                    <span class="n">events</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">&quot;Date&quot;</span><span class="p">:</span>
+                <span class="k">with</span> <span class="n">ConnectionPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+                         <span class="s1">&#39;SELECT * FROM event_table WHERE LOWER (date) LIKE LOWER (</span><span class="si">%s</span><span class="s1">) AND group_id IS NULL AND (date) &gt;= (</span><span class="si">%s</span><span class="s1">) &#39;</span>
+                         <span class="s1">&#39;ORDER BY (date,time)&#39;</span><span class="p">,(</span><span class="nb">input</span><span class="p">,</span> <span class="n">total</span><span class="p">))</span>
+                    <span class="n">events</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">initialization</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="database-table-diagrams">
+<h2>Database Table Diagrams<a class="headerlink" href="#database-table-diagrams" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="user-table">
+<h2>User Table<a class="headerlink" href="#user-table" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/user_table.jpg"><img alt="Database Relation" src="../_images/user_table.jpg" style="width: 286.5px; height: 384.0px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="news-table">
+<h2>News Table<a class="headerlink" href="#news-table" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/news_table.jpg"><img alt="Database Relation" src="../_images/news_table.jpg" style="width: 324.0px; height: 274.0px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="event-table">
+<h2>Event Table<a class="headerlink" href="#event-table" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/event_table.jpg"><img alt="Database Relation" src="../_images/event_table.jpg" style="width: 343.5px; height: 356.0px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="event-user-table">
+<h2>Event User Table<a class="headerlink" href="#event-user-table" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/event_user.jpg"><img alt="Database Relation" src="../_images/event_user.jpg" style="width: 234.5px; height: 232.5px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="group-user-table">
+<h2>Group User Table<a class="headerlink" href="#group-user-table" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/group_user.jpg"><img alt="Database Relation" src="../_images/group_user.jpg" style="width: 241.0px; height: 216.0px;" /></a>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cagla.html" class="btn btn-neutral float-right" title="Parts Implemented by Cagla" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Developer Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, ITUCSDB1834
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parts Implemented by Cagla &mdash; ITUCSDB1834  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developer Guide" href="../developer/index.html" />
+    <link rel="prev" title="Parts Implemented by Idil" href="idil.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ITUCSDB1834
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="idil.html">Parts Implemented by Idil</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Parts Implemented by Cagla</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-group">Create Group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#group-views">Group Views</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#view-for-owner">View For Owner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-for-authorized-member">View For Authorized Member</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search-group">Search Group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#join-group">Join Group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-for-unauthorized-member">View For Unauthorized Member</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#update-group">Update Group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#group-events">Group Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-request">Create Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upvote-request">Upvote Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comment">Comment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-and-delete-comment">Update and Delete Comment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ITUCSDB1834</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">User Guide</a> &raquo;</li>
+        
+      <li>Parts Implemented by Cagla</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/user/cagla.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parts-implemented-by-cagla">
+<h1>Parts Implemented by Cagla<a class="headerlink" href="#parts-implemented-by-cagla" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-group">
+<h2>Create Group<a class="headerlink" href="#create-group" title="Permalink to this headline">¶</a></h2>
+<p>You can create groups to plan new events with the same people.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/create_group.PNG"><img alt="Create Group" src="../_images/create_group.PNG" style="width: 503.99999999999994px; height: 543.9px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="group-views">
+<h2>Group Views<a class="headerlink" href="#group-views" title="Permalink to this headline">¶</a></h2>
+<p>At the figure below, there are owned groups of an user:</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/owned_groups.PNG"><img alt="Owned Groups" src="../_images/owned_groups.PNG" style="width: 490.7px; height: 539.6999999999999px;" /></a>
+</div>
+</div></blockquote>
+<div class="section" id="view-for-owner">
+<h3>View For Owner<a class="headerlink" href="#view-for-owner" title="Permalink to this headline">¶</a></h3>
+<p>Group members will have more permissions for operations at the group, if the owner of the group gives permission to the other members of the group to alter group information. And only the owner of the group is allowed to delete people from group or delete group completely.</p>
+<p>At the figure below, owner of the group added a new member to the group. (Since group is private only members of the group can add  people and there is only owner in the group at the begining)</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/group_owner.PNG"><img alt="Group Owner" src="../_images/group_owner.PNG" style="width: 499.09999999999997px; height: 576.0999999999999px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="view-for-authorized-member">
+<h3>View For Authorized Member<a class="headerlink" href="#view-for-authorized-member" title="Permalink to this headline">¶</a></h3>
+<p>Although members of the group are authorized they can not delete the particapants or the group.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/authorized_group_member.PNG"><img alt="Authorized Group Member" src="../_images/authorized_group_member.PNG" style="width: 509.59999999999997px; height: 558.5999999999999px;" /></a>
+</div>
+</div>
+<div class="section" id="search-group">
+<h3>Search Group<a class="headerlink" href="#search-group" title="Permalink to this headline">¶</a></h3>
+<p>A user can search for groups if group is public (is open to search and join). At the figure below, groups with a name that contains text ‘training’ is searched.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/searched_groups.PNG"><img alt="Found Groups" src="../_images/searched_groups.PNG" style="width: 492.79999999999995px; height: 544.5999999999999px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="join-group">
+<h3>Join Group<a class="headerlink" href="#join-group" title="Permalink to this headline">¶</a></h3>
+<p>If a user is not already member of the found group and number of members is lower than maximum number, user can join the group.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/join_group.PNG"><img alt="Join Group" src="../_images/join_group.PNG" style="width: 511.7px; height: 412.29999999999995px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="view-for-unauthorized-member">
+<h3>View For Unauthorized Member<a class="headerlink" href="#view-for-unauthorized-member" title="Permalink to this headline">¶</a></h3>
+<p>Since the members of the joined group other than the owner are unauthorized,they can only view group events, create request and leave the group.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/unauthorized_group_member.PNG"><img alt="Unauthorized Group Member" src="../_images/unauthorized_group_member.PNG" style="width: 499.79999999999995px; height: 443.09999999999997px;" /></a>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="update-group">
+<h2>Update Group<a class="headerlink" href="#update-group" title="Permalink to this headline">¶</a></h2>
+<p>If you are group owner or group owner gave the permission to alter group information you can update the group.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/update_group.PNG"><img alt="Update Group" src="../_images/update_group.PNG" style="width: 509.59999999999997px; height: 546.0px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="group-events">
+<h2>Group Events<a class="headerlink" href="#group-events" title="Permalink to this headline">¶</a></h2>
+<p>If you are group owner or group owner gave the permission to alter group information you can create events for group.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/group_events.PNG"><img alt="Group Events" src="../_images/group_events.PNG" style="width: 501.2px; height: 551.5999999999999px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="create-request">
+<h2>Create Request<a class="headerlink" href="#create-request" title="Permalink to this headline">¶</a></h2>
+<p>You can create requests for new events to be organized for group and see how many people is willing to join. (The owner of request can delete it later.)</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/create_request.PNG"><img alt="Create Request" src="../_images/create_request.PNG" style="width: 518.0px; height: 552.3px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="upvote-request">
+<h2>Upvote Request<a class="headerlink" href="#upvote-request" title="Permalink to this headline">¶</a></h2>
+<p>Members of group can upvote request, and downvote it if their mind is changed.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/vote.PNG"><img alt="Vote" src="../_images/vote.PNG" style="width: 495.59999999999997px; height: 570.5px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="comment">
+<h2>Comment<a class="headerlink" href="#comment" title="Permalink to this headline">¶</a></h2>
+<p>You can comment the events.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/comments.PNG"><img alt="Comments" src="../_images/comments.PNG" style="width: 509.59999999999997px; height: 569.8px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="update-and-delete-comment">
+<h2>Update and Delete Comment<a class="headerlink" href="#update-and-delete-comment" title="Permalink to this headline">¶</a></h2>
+<p>You can update or delete your comment.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/update_message.PNG"><img alt="Update Comment" src="../_images/update_message.PNG" style="width: 497.7px; height: 552.3px;" /></a>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../developer/index.html" class="btn btn-neutral float-right" title="Developer Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="idil.html" class="btn btn-neutral" title="Parts Implemented by Idil" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, ITUCSDB1834
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
