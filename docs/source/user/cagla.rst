@@ -62,7 +62,6 @@ Since the members of the joined group other than the owner are unauthorized,they
 Update Group
 --------------
 If you are group owner or group owner gave the permission to alter group information you can update the group.
-(When group is updated, a notification is sent to every member of group.)
 
  .. figure:: pics/update_group.PNG
    :scale: 70 %
@@ -71,7 +70,6 @@ If you are group owner or group owner gave the permission to alter group informa
 Group Events
 --------------
 If you are group owner or group owner gave the permission to alter group information you can create events for group.
-(When a new event is added, a notification is sent to every member of group.)
 
  .. figure:: pics/group_events.PNG
    :scale: 70 %
@@ -101,10 +99,10 @@ You can comment the events.
    :scale: 70 %
    :alt: Comments
    
-Update and DeleteComment
+Update and Delete Comment
 --------------
 You can update or delete your comment.
 
-  .. figure:: pics/update_messages.PNG
+  .. figure:: pics/update_message.PNG
    :scale: 70 %
    :alt: Update Comment
