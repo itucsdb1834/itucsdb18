@@ -21,13 +21,11 @@ View For Owner
 ^^^^^^^^^^^^^^^^
 Group members will have more permissions for operations at the group, if the owner of the group gives permission to the other members of the group to alter group information. And only the owner of the group is allowed to delete people from group or delete group completely. 
 
-At the figure below, owner of yhe group added a new member to the group. (Since group is private only members of the group can add  people and there is only owner in the group at the begining)
+At the figure below, owner of the group added a new member to the group. (Since group is private only members of the group can add  people and there is only owner in the group at the begining)
 
   .. figure:: pics/group_owner.PNG
    :scale: 70 %
    :alt: Group Owner
- 
-
 
 View For Authorized Member
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -94,3 +92,19 @@ Members of group can upvote request, and downvote it if their mind is changed.
   .. figure:: pics/vote.PNG
    :scale: 70 %
    :alt: Vote
+   
+Comment
+--------------
+You can comment the events.
+
+  .. figure:: pics/comments.PNG
+   :scale: 70 %
+   :alt: Comments
+   
+Update and DeleteComment
+--------------
+You can update or delete your comment.
+
+  .. figure:: pics/update_messages.PNG
+   :scale: 70 %
+   :alt: Update Comment
