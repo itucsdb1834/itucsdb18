@@ -20,19 +20,22 @@ Group Views
 Group members will have more permissions for operations at group if owner of the group gives permission to the other members of group to alter group information. And only the owner of the group is allowed to delete people from group or delete group completely. 
 
 View For Owner
+^^^^^^^^^^^^^^^^
 
   .. figure:: pics/group_owner.PNG
    :scale: 70 %
    :alt: Group Owner
    
 View For Authorized Member
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
   .. figure:: pics/authorized_group_member.PNG
-   :scale: 45 %
+   :scale: 70 %
    :alt: Authorized Group Member
 
 View For Unauthorized Member
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
   .. figure:: pics/unauthorized_group_member.PNG
-   :scale: 45 %
+   :scale: 70 %
    :alt: Unauthorized Group Member
