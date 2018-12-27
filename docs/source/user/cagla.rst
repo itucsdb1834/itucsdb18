@@ -19,9 +19,9 @@ At the figure below, there are owned groups of an user:
    
 View For Owner
 ^^^^^^^^^^^^^^^^
-Group members will have more permissions for operations at group if owner of the group gives permission to the other members of group to alter group information. And only the owner of the group is allowed to delete people from group or delete group completely. 
+Group members will have more permissions for operations at the group, if the owner of the group gives permission to the other members of the group to alter group information. And only the owner of the group is allowed to delete people from group or delete group completely. 
 
-At the figure below owner of group added a new member to the group. (Since group is private only member of group can add  people and there is only owner in the group at the begining)
+At the figure below, owner of yhe group added a new member to the group. (Since group is private only members of the group can add  people and there is only owner in the group at the begining)
 
   .. figure:: pics/group_owner.PNG
    :scale: 70 %
@@ -72,10 +72,17 @@ If you are group owner or group owner gave the permission to alter group informa
    
 Group Events
 --------------
-If you are group owner or group owner gave the permission to alter group information you can create evnts for group.
+If you are group owner or group owner gave the permission to alter group information you can create events for group.
 (When a new event is added, a notification is sent to every member of group.)
 
  .. figure:: pics/group_events.PNG
    :scale: 70 %
    :alt: Group Events
-   
+
+Create Request
+--------------
+You can create requests for new events to be organized for group and see how many people is willing to join.
+
+  .. figure:: pics/create_request.PNG
+   :scale: 70 %
+   :alt: Create Request 
