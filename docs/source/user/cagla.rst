@@ -11,7 +11,7 @@ You can create groups to plan new events with the same people.
 
 Group Views
 --------------
-At the figure above, there ara owned groups of an user:
+At the figure above, there are owned groups of an user:
 
  .. figure:: pics/owned_groups.PNG
    :scale: 70 %
