@@ -4,7 +4,7 @@ Parts Implemented by Cagla
 Group Class
 -----------
  
- In this class, we implement inserting new group to group table, updating group information and deleting group. Also inserting new member to group_user table and getting members of group from group_user table.
+ In this class, we implement inserting new group to group table, updating group information and deleting group. And it also includes methods to inserting new member to group_user table and getting members of group from group_user table.
  
   .. code-block:: python
   
