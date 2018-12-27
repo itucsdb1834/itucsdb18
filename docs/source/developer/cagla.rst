@@ -4,11 +4,9 @@ Parts Implemented by Cagla
 Group Class
 -----------
 
-
-
-.. code-block:: python
-  class Group():
-    def __init__(self, name, isprivate, owner, description, give_permission ,group_id,max_number):
+  .. code-block:: python
+    class Group():
+      def __init__(self, name, isprivate, owner, description, give_permission ,group_id,max_number):
         self.name = name
         self.isprivate = isprivate
         self.owner= owner
@@ -20,7 +18,7 @@ Group Class
         self.participant_no = 0
         self.max_number = max_number
 
-    def read_with_id(self):
+      def read_with_id(self):
         with ConnectionPool() as cursor:
             cursor.execute('SELECT * FROM group_table WHERE group_id = %s' , (self.group_id,))
             result = cursor.fetchone()
@@ -33,12 +31,12 @@ Group Class
             self.get_owner_name()
             self.get_participants()
 
-    def get_owner_name(self):
+      def get_owner_name(self):
         with ConnectionPool() as cursor:
             cursor.execute('SELECT username FROM user_table WHERE userid = %s' , (self.owner,))
             self.owner_name = cursor.fetchone()[0]
 
-    def add_participant(self, username):
+      def add_participant(self, username):
         with ConnectionPool() as cursor:
             cursor.execute('SELECT userid FROM user_table WHERE username = %s ' , (username, ))
             userid = cursor.fetchone()[0]
@@ -56,7 +54,7 @@ Group Class
             else:
                 raise Exception('Group is already full no more place!')
 
-    def check_participant(self, userid):
+      def check_participant(self, userid):
         with ConnectionPool() as cursor:
             cursor.execute('SELECT * FROM group_user WHERE user_id = %s AND group_id=%s' , (userid, self.group_id ))
             if cursor.fetchone():
@@ -64,7 +62,7 @@ Group Class
             else:
                 return False
 
-    def delete_group(self):
+      def delete_group(self):
         self.get_owner_name()
         for participant in self.participants:
             new = New(None, self.owner_name, participant, self.group_id,None, None, 'group' , 'deleted', False, None,None )
@@ -74,7 +72,7 @@ Group Class
             cursor.execute('UPDATE news_table SET link = %s WHERE group_id IS NULL AND link IS NOT NULL ' , (None,))
 
 
-    def update_group(self, name,isprivate,description,give_permission, max_number):
+      def update_group(self, name,isprivate,description,give_permission, max_number):
         if max_number < self.participant_no:
             raise Exception('You cannot decrease max_number for this group because there are already more participants. ')
         with ConnectionPool() as cursor:
@@ -90,7 +88,7 @@ Group Class
             new = New(None, self.owner_name, participant,self.group_id,None, None, 'group' , 'updated', False, None,None )
             new.save_to_db()
 
-    def get_participants(self):
+      def get_participants(self):
         with ConnectionPool() as cursor:
             cursor.execute('SELECT user_table.username FROM user_table RIGHT OUTER JOIN group_user ON group_user.user_id = user_table.userid WHERE group_user.group_id = %s ' , (self.group_id,))
             participants = cursor.fetchall()
@@ -98,13 +96,16 @@ Group Class
             self.participants.append(participant[0])
             self.participant_no = self.participant_no +1
 
-    def save_to_db(self):
+      def save_to_db(self):
         with ConnectionPool() as cursor:
             cursor.execute('INSERT INTO group_table(group_name, isprivate, owner, description, give_permission,max_number) VALUES(%s,%s,%s,%s,%s,%s);',(self.name, self.isprivate , self.owner , self.description, self.give_permission,self.max_number))
             cursor.execute('SELECT group_id FROM group_table WHERE group_name = %s AND owner = %s', (self.name, self.owner))
             result = cursor.fetchone()
             self.group_id = result[0]
             cursor.execute('INSERT INTO group_user(group_id,user_id) VALUES(%s,%s);' , (self.group_id , self.owner))
+
+   
+    
 
 
 Groups Class
