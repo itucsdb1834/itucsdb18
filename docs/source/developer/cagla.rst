@@ -3,7 +3,9 @@ Parts Implemented by Cagla
 
 Group Class
 -----------
-
+ 
+ In this class, we implement inserting new group to group table, updating group information and deleting group. Also inserting new member to group_user table and getting members of group from group_user table.
+ 
   .. code-block:: python
   
       class Group():
@@ -105,16 +107,11 @@ Group Class
                 self.group_id = result[0]
                 cursor.execute('INSERT INTO group_user(group_id,user_id) VALUES(%s,%s);' , (self.group_id , self.owner))
         
-
-
-
-
-
-
+        
 Groups Class
 -------------
 
-
+ In this class, we have methods for filtering groups according to group name or group owner. Also it has methods to read the owned and joined groups from group table for current user.
 
   .. code-block:: python
   
@@ -160,11 +157,12 @@ Groups Class
                 add_group = Group(group[1], group[3], id, group[6], group[2], group[0], group[5])
                 self.arr.append(add_group)
       
+      
 Request Class
 ---------------
 
-
-
+ In this class, we implement inserting new request to request table and reading the group members who upvoted request from upvote_table.
+ 
   .. code-block:: python
   
       class Request():
@@ -229,10 +227,12 @@ Request Class
             if upvote:
                 return True
             return False
-      
+    
+    
 User Class (methods about request)
 ----------------------------------
 
+User class also includes methods to delete request and upvote request(which updates upvote number column of request table.)
 
   .. code-block:: python
   
@@ -285,6 +285,7 @@ User Class (methods about request)
 Requests Class
 ---------------
 
+This class is used for printing requests for chosen group which is referenced at request table.
 
   .. code-block:: python
   
@@ -306,6 +307,7 @@ Requests Class
 Comment Class
 --------------
 
+In this class, we implement inserting new comments to comment table, updating comment and deleting comment. 
 
   .. code-block:: python
   
@@ -358,10 +360,12 @@ Comment Class
                 id = cursor.fetchone()[0]
             return id
       
+      
 Comments Class
 ---------------
 
-
+This class is used for printing comments for chosen event which is referenced at event table.
+ 
   .. code-block:: python
   
       class Comments():
